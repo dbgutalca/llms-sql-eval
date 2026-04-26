@@ -1,0 +1,32 @@
+{
+  "description": "Automatic LLM-as-judge classification (paper Section Automatic Evaluation).",
+  "openrouter": {
+    "base_url": "https://openrouter.ai/api/v1"
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content_source": "automatic/prompts.yaml key eval_classification_prompt"
+    },
+    {
+      "role": "user",
+      "content": "Single JSON object (serialized as a string for the chat message body) with keys: question (full exercise README text), sql (erroneous variant SQL file contents)."
+    }
+  ],
+  "structured_output_labels": ["syntax", "semantic", "logical", "hallucination"],
+  "paper_table_column_names": {
+    "syntax": "Syntactic",
+    "semantic": "Semantic",
+    "logical": "Conceptual",
+    "hallucination": "Hallucination"
+  },
+  "index": {
+    "path": "automatic/index.jsonl",
+    "path_resolution": "Every path string in the index is relative to the directory that contains index.jsonl (the automatic/ folder), so data/... resolves to automatic/data/..."
+  },
+  "notes": [
+    "Gold labels in the benchmark index use the same four strings as structured_output_labels (logical, not conceptual).",
+    "Harness reference: UTAL sqlagent/evals.py function evaluate_classification(); single sample per item (no repeated sampling).",
+    "When porting the harness, open index.jsonl with cwd set to automatic/ or join paths against the automatic/ directory."
+  ]
+}

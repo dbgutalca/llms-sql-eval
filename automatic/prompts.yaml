@@ -1,0 +1,20 @@
+# Classification judge: mirrors UTAL sqlagent/prompts.yaml → eval_classification_prompt.
+# Source repo: sqlagent/ under the authors' UTAL codebase.
+
+eval_classification_prompt: |
+  Actúa como evaluador de errores de SQL en dialecto MySQL. Dado un fragmento de SQL, entrega exactamente una etiqueta de este conjunto: syntax, semantic, logical, hallucination.
+
+  Supuestos y criterios:
+  - Asume SIEMPRE el dialecto MySQL.
+  - Ignora la ausencia de directivas DELIMITER en procedimientos almacenados: considera válido `CREATE PROCEDURE ... BEGIN ... END` aunque no haya `DELIMITER`.
+  - Cuando el fragmento incluya un procedimiento almacenado, juzga la(s) sentencia(s) `SELECT` internas (el núcleo de la consulta) como base de la clasificación.
+  - Considera válidos constructos y funciones de MySQL como `ORDER BY 1`, `DAYOFWEEK()`, `MOD`, y `LIMIT offset,count`.
+  - La "Pregunta" (descripción del problema) se incluirá junto al SQL. Úsala como contexto para diferenciar entre semantic y logical cuando sea necesario.
+
+  Definiciones:
+  - syntax: SQL inválido que no se puede ejecutar en MySQL (excluyendo únicamente la falta de `DELIMITER`).
+  - semantic: gramaticalmente válido, pero expresa una intención diferente (p. ej., orden o filtrado distinto del requerido) y por ello cambia el significado.
+  - logical: ejecutable pero produce resultados incorrectos por lógica equivocada (p. ej., usar `price + quantity` en vez de `price * quantity`, ventana `LIMIT` equivocada, orden por columna errónea).
+  - hallucination: referencia tablas/columnas/funciones inexistentes.
+
+  Responde únicamente con la etiqueta.
