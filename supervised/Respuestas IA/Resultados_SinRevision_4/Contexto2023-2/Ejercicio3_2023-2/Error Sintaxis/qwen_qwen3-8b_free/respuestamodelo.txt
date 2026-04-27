@@ -1,0 +1,16 @@
+--- Modelo: qwen/qwen3-8b:free
+--- Tiempo: 45.78s
+--- Largo: 503 caracteres
+--- Tokens entrada: 3822
+--- Tokens salida: 2777
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Error de sintaxis: Nombre de tabla incorrecto:tecis debe ser tesis.
+   - ¿Por qué es un error? La tabla 'tecis' no existe en el esquema, debe usar 'tesis' como nombre correcto.
+
+2. Error de sintaxis: Uso incorrecto de JON en lugar de JOIN.
+   - ¿Por qué es un error? La palabra clave debe ser 'JOIN' en lugar de 'JON'. 
+
+3. Error de sintaxis: Uso incorrecto de DISTING en lugar de DISTINCT.
+   - ¿Por qué es un error? La palabra clave debe ser 'DISTINCT' en lugar de 'DISTING'.

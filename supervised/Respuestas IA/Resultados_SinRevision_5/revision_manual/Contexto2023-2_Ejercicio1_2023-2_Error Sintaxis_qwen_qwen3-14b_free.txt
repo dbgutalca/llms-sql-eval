@@ -1,0 +1,103 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-2_Ejercicio1_2023-2_Error Sintaxis_qwen_qwen3-14b_free
+CONTEXTO: Contexto2023-2
+EJERCICIO: Ejercicio1_2023-2
+TIPO DE EVALUACIÓN: Error Sintaxis
+MODELO EVALUADO: qwen/qwen3-14b:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-10-02 19:11:36
+TIEMPO RESPUESTA: 11.51 segundos
+TOKENS ENTRADA: 3848
+TOKENS SALIDA: 778
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-2) ejercicio 1 para errores sintaxis: Detectar problemas en la redaccion de la solucion, las cuales generan errores de ejecucion del ejercicio.
+
+Errores esperados
+1. Error Sintaxis, Falta coma el select
+2. Error Sintaxis, Academico mal escrito
+3. Error Sintaxis, Falta ON para JOIN
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+SELECT academico.nombre AS nombre_academico COUNT(tesis.ref_estudiante) AS nro_estudiantes
+FROM academic
+INNER JOIN tesis tesis.ref_tutor = academico.id
+GROUP BY academico.id, academico.nombre;
+
+- Tabla resultante de estudiante -
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+Errores identificados:
+1. Sintaxis: Falta coma después de "academico.nombre AS nombre_academico".
+   - ¿Por qué es un error? En SQL, los campos en la cláusula SELECT deben separarse con comas cuando se usan múltiples columnas o alias.
+
+2. Sintaxis: Uso incorrecto de `INNER JOIN` (falta cláusula `ON`).
+   - ¿Por qué es un error? La sintaxis `INNER JOIN` requiere especificar la condición de unión con `ON`, no con un operador de igualdad directo.
+
+3. Sintaxis: Palabra clave incorrecta `academic` en lugar de `academico`.
+   - ¿Por qué es un error? La tabla correcta es `academico`, no `academic`, lo que generará un error de sintaxis al no encontrar la tabla definida.
+
+4. Conceptual: Inclusión no necesaria de `academico.nombre` en `GROUP BY`.
+   - ¿Por qué es un error? La columna `nombre` no es necesaria en `GROUP BY` si ya se usa `academico.id` como clave de agrupación (es funcionalmente dependiente del ID). La consulta correcta solo agrupa por `academico.id`.
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que revisar si el modelo identificó correctamente los errores esperados.
+
+Para cada error:
+- Si lo identificó y categorizó bien → cuenta como "correctamente identificado"
+- Si lo identificó pero mal catalogado → "mal catalogado"
+- Si no lo detectó → "no encontrado"
+- Si mencionó un error que no existe y no esta relacionado a un error mencionado → "inventado"
+
+```json
+{
+  "id_evaluacion": "Contexto2023-2_Ejercicio1_2023-2_Error Sintaxis_qwen_qwen3-14b_free",
+  "contexto": "Contexto2023-2",
+  "ejercicio": "Ejercicio1_2023-2",
+  "tipo_evaluacion": "Error Sintaxis",
+  "modelo_evaluado": "qwen/qwen3-14b:free",
+  "evaluacion": {
+    "errores_correctamente_identificados": null,
+    "errores_no_encontrados": null,
+    "errores_mal_catalogados": null,
+    "errores_inventados": null,
+    "tiempo_respuesta": 11.51
+  },
+  "errores_esperados_total": 3,
+  "errores_detectados_por_modelo": []
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+NOTA: Complete todos los campos null con valores numéricos apropiados

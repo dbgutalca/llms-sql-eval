@@ -1,0 +1,105 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-2_Ejercicio2_2023-2_Respuesta Correcta_meta-llama_llama-4-maverick_free
+CONTEXTO: Contexto2023-2
+EJERCICIO: Ejercicio2_2023-2
+TIPO DE EVALUACIÓN: Respuesta Correcta
+MODELO EVALUADO: meta-llama/llama-4-maverick:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-09-30 16:57:13
+TIEMPO RESPUESTA: 3.80 segundos
+TOKENS ENTRADA: 3636
+TOKENS SALIDA: 175
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-2) ejercicio 2 para respuestas correctas: Detectar si el modelo encuentra la respuesta del estudiante correcta
+
+Errores esperados
+1. La respuesta del estudiante es correcta.
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+SELECT academico.nombre AS nombre_academico
+FROM academico
+INNER JOIN revisor ON revisor.ref_academico = academico.id
+GROUP BY academico.id, academico.nombre
+HAVING COUNT(revisor.ref_tesis) = (
+    SELECT MAX(contador)
+    FROM (
+        SELECT COUNT(revisor.ref_tesis) AS contador
+        FROM academico
+        INNER JOIN revisor ON revisor.ref_academico = academico.id
+        GROUP BY academico.id
+    ) AS t
+);
+
+- Tabla resultante de estudiante -
+
+|nombre_academico |
+|-----------------|
+|Academico cuatro |
+|Academico cinco  |
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+No hay error encontrado.
+
+Aunque la consulta del estudiante y la respuesta correcta tienen el mismo resultado, la consulta del estudiante es más clara y concisa al usar `INNER JOIN` en lugar de comas en la cláusula `FROM`. Ambas consultas son correctas y logran el resultado deseado sin utilizar `ORDER BY`, `OFFSET` o `LIMIT`.
+
+ Sin embargo si se quisiera evaluar en detalle se puede decir que:
+
+ Errores identificados:
+   1. Error conceptual: Uso implícito de JOIN mediante comas en la respuesta correcta.
+      - ¿Por qué no es un error en la respuesta del estudiante?: La respuesta del estudiante utiliza `INNER JOIN` de manera explícita, lo cual es más legible y conforme a las prácticas recomendadas de SQL.
+
+Pero en estricto rigor en terminos de resultado: 
+   No hay error encontrado.
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que evaluar si el modelo puede determinar si una respuesta es correcta o incorrecta si es el caso de respuesta correcta e identifica como correcta, el modelo si pudo identificar entonces es True, en el caso de incorrecta lo mismo.
+
+```json
+{
+  "id_evaluacion": "Contexto2023-2_Ejercicio2_2023-2_Respuesta Correcta_meta-llama_llama-4-maverick_free",
+  "contexto": "Contexto2023-2",
+  "ejercicio": "Ejercicio2_2023-2",
+  "tipo_evaluacion": "Respuesta Correcta",
+  "modelo_evaluado": "meta-llama/llama-4-maverick:free",
+  "evaluacion": {
+    "detecto_correctamente": null,
+    "tiempo_respuesta": 3.80
+  }
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+detecto_correctamente: true si el modelo dijo que la respuesta es correcta/incorrecta y coincide con lo esperado
+NOTA: Complete todos los campos null con valores apropiados (true/false o números)

@@ -1,0 +1,9 @@
+--- Modelo: deepseek/deepseek-chat-v3.1:free
+--- Tiempo: 2.71s
+--- Largo: 50 caracteres
+--- Tokens entrada: 3868
+--- Tokens salida: 14
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+No hay errores encontrados.

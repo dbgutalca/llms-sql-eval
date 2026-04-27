@@ -1,0 +1,9 @@
+--- Modelo: deepseek/deepseek-r1-0528-qwen3-8b:free
+--- Tiempo: 35.14s
+--- Largo: 47 caracteres
+--- Tokens entrada: 4025
+--- Tokens salida: 2659
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+No hay error encontrado.

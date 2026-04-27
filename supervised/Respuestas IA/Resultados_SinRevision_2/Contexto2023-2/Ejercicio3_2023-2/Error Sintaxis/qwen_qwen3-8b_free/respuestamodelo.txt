@@ -1,0 +1,16 @@
+--- Modelo: qwen/qwen3-8b:free
+--- Tiempo: 51.61s
+--- Largo: 629 caracteres
+--- Tokens entrada: 3822
+--- Tokens salida: 2897
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Sintaxis: Uso incorrecto de "DISTING" en lugar de "DISTINCT".
+   - ¿Por qué es un error? La palabra clave "DISTING" no es válida en SQL. Debe ser "DISTINCT" para evitar duplicados en los resultados.
+
+2. Sintaxis: Uso de tabla "tecis" que no existe en la base de datos.
+   - ¿Por qué es un error? La tabla "tecis" no está definida en el esquema proporcionado. Debe ser "tesis" para referirse correctamente a la tabla de tesis.
+
+3. Sintaxis: Uso incorrecto de "JON" en lugar de "JOIN".
+   - ¿Por qué es un error? La palabra clave "JON" no es válida. Debe ser "JOIN" para establecer una unión entre tablas.

@@ -1,0 +1,60 @@
+- Tablas -
+
+create table academico(id integer primary key, nombre text, area text);
+
+create table estudiante(id integer primary key, nombre text, anio_ingreso integer);
+
+create table tesis(id integer primary key, titulo text, ref_estudiante integer references estudiante(id), ref_tutor integer references academico(id), fecha date);
+
+create table revisor(ref_tesis integer references tesis(id), ref_academico integer references academico(id));
+
+- Datos -
+
+insert into academico values (1,'Academico uno','Area X');
+insert into academico values (2,'Academico dos','Area X');
+insert into academico values (3,'Academico tres','Area X');
+insert into academico values (4,'Academico cuatro','Area X');
+insert into academico values (5,'Academico cinco','Area X');
+insert into academico values (6,'Academico seis','Area X');
+insert into academico values (7,'Academico siete','Area X');
+insert into academico values (8,'Academico ocho','Area X');
+insert into academico values (9,'Academico nueve','Area X');
+
+insert into estudiante values (1,'Estudiante uno',2019);
+insert into estudiante values (2,'Estudiante dos',2019);
+insert into estudiante values (3,'Estudiante tres',2019);
+insert into estudiante values (4,'Estudiante cuatro',2019);
+insert into estudiante values (5,'Estudiante cinco',2019);
+insert into estudiante values (6,'Estudiante seis',2019);
+insert into estudiante values (7,'Estudiante siete',2019);
+insert into estudiante values (8,'Estudiante ocho',2019);
+insert into estudiante values (9,'Estudiante nueve',2019);
+
+insert into tesis values (1,'Tesis uno',1,1,'2022-01-15');
+insert into tesis values (2,'Tesis dos',2,2,'2022-02-15');
+insert into tesis values (3,'Tesis tres',3,3,'2022-03-15');
+insert into tesis values (4,'Tesis cuatro',4,4,'2022-04-15');
+insert into tesis values (5,'Tesis cinco',5,5,'2022-05-15');
+insert into tesis values (6,'Tesis seis',6,1,'2023-01-15');
+insert into tesis values (7,'Tesis siete',7,2,'2023-02-15');
+insert into tesis values (8,'Tesis ocho',8,3,'2023-03-15');
+insert into tesis values (9,'Tesis nueve',9,4,'2023-04-15');
+
+insert into revisor values (1,6);
+insert into revisor values (1,7);
+insert into revisor values (2,8);
+insert into revisor values (2,9);
+insert into revisor values (3,6);
+insert into revisor values (3,7);
+insert into revisor values (4,8);
+insert into revisor values (4,9);
+insert into revisor values (5,4);
+insert into revisor values (5,5);
+insert into revisor values (6,4);
+insert into revisor values (6,5);
+insert into revisor values (7,4);
+insert into revisor values (7,5);
+insert into revisor values (8,4);
+insert into revisor values (8,5);
+insert into revisor values (9,4);
+insert into revisor values (9,5);

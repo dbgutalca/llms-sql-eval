@@ -1,0 +1,9 @@
+--- Modelo: google/gemma-3-12b-it:free
+--- Tiempo: 6.23s
+--- Largo: 118 caracteres
+--- Tokens entrada: 3948
+--- Tokens salida: 31
+--- Éxito: True
+--- Respuesta del Modelo:
+,
+El problema es que te concentraste en un error, por lo que no pudiste ver que la query fue en su totalidad correcta.

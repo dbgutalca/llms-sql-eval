@@ -1,0 +1,22 @@
+  - Enunciado -
+
+Retornar una tabla con los nombres de los académicos que han sido tutores de tesis de estudiantes que ingresaron en el año 2019. No repetir los nombres de los académicos.
+
+- Respuesta correcta -
+
+SELECT DISTINCT academico.nombre
+FROM academico, estudiante, tesis
+WHERE
+  tesis.ref_estudiante = estudiante.id AND
+  tesis.ref_tutor = academico.id AND
+  estudiante.anio_ingreso = 2019;
+
+- Tabla esperada -
+
+| nombre_academico |
+| ---------------- |
+| Academico cinco  |
+| Academico cuatro |	
+| Academico dos    |
+| Academico tres   |
+| Academico uno    |

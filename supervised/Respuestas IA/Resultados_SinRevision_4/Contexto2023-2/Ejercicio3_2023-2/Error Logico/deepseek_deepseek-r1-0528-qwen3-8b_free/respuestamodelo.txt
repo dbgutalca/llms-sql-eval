@@ -1,0 +1,10 @@
+--- Modelo: deepseek/deepseek-r1-0528-qwen3-8b:free
+--- Tiempo: 17.69s
+--- Largo: 185 caracteres
+--- Tokens entrada: 3815
+--- Tokens salida: 835
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Logico: Mal uso del filtro anio_ingreso.
+   - ¿Por qué es un error? Filtra estudiantes con anio_ingreso = 2018, pero el enunciado requiere anio_ingreso = 2019.

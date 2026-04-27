@@ -1,0 +1,8 @@
+--- Modelo: google/gemma-3-12b-it:free
+--- Tiempo: 2.43s
+--- Largo: 32 caracteres
+--- Tokens entrada: 4075
+--- Tokens salida: 11
+--- Éxito: True
+--- Respuesta del Modelo:
+, necesito que evalúes este SQL.

@@ -1,0 +1,12 @@
+--- Modelo: qwen/qwen3-235b-a22b:free
+--- Tiempo: 51.96s
+--- Largo: 91 caracteres
+--- Tokens entrada: 4061
+--- Tokens salida: 3439
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+   - None
+
+</RespuestaEsperadaDelLLM>   
+   No hay error encontrado.

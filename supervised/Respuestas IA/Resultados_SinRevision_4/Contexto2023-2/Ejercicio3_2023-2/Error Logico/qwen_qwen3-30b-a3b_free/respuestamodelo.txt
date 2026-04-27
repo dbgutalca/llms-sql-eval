@@ -1,0 +1,13 @@
+--- Modelo: qwen/qwen3-30b-a3b:free
+--- Tiempo: 9.52s
+--- Largo: 446 caracteres
+--- Tokens entrada: 3819
+--- Tokens salida: 530
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Uso incorrecto del año de ingreso en WHERE.
+   - ¿Por qué es un error? La consulta filtra estudiantes con anio_ingreso = 2018, pero el requisito es para estudiantes que ingresaron en 2019.
+
+2. Lógico: Falta uso de DISTINCT para evitar repetidos.
+   - ¿Por qué es un error? La tabla esperada no debe tener nombres repetidos de académicos, pero la consulta no incluye DISTINCT ni una cláusula que evite duplicados.

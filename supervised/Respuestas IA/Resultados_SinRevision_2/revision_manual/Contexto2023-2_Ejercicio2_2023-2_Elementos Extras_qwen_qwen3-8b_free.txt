@@ -1,0 +1,116 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-2_Ejercicio2_2023-2_Elementos Extras_qwen_qwen3-8b_free
+CONTEXTO: Contexto2023-2
+EJERCICIO: Ejercicio2_2023-2
+TIPO DE EVALUACIÓN: Elementos Extras
+MODELO EVALUADO: qwen/qwen3-8b:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-09-29 01:38:46
+TIEMPO RESPUESTA: 88.70 segundos
+TOKENS ENTRADA: 4029
+TOKENS SALIDA: 6765
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-2) ejercicio 2 para Errores conseptuales: Detectar problemas en una respuesta la cual puede ser correcta, pero añade elementos no solicitados en el problema.
+
+Errores esperados
+1. Error conseptual, realizar una sub-consulta para obtener academico
+2. Error conseptual, realizar una sub-consulta para obtener revisor
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+SELECT academico.nombre AS nombre_academico
+FROM (
+    SELECT academico.id, academico.nombre
+    FROM academico
+) AS academico
+INNER JOIN (
+    SELECT revisor.ref_academico, revisor.ref_tesis
+    FROM revisor
+) AS revisor ON revisor.ref_academico = academico.id
+GROUP BY academico.id, academico.nombre
+HAVING COUNT(revisor.ref_tesis) = (
+    SELECT MAX(contador)
+    FROM (
+        SELECT COUNT(revisor.ref_tesis) AS contador
+        FROM academico
+        INNER JOIN revisor ON revisor.ref_academico = academico.id
+        GROUP BY academico.id
+    ) AS subquery
+);
+
+- Tabla resultante de estudiante -
+
+|nombre_academico|
+|----------------|
+|Academico cuatro|
+|Academico cinco |
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+Errores identificados:
+1. Lógico: Uso innecesario de JOIN con tabla revisor en FROM.
+   - ¿Por qué es un error? La consulta incluye un JOIN redundante con la tabla revisor, ya que los datos de los académicos se pueden obtener directamente de la tabla academico sin necesidad de unirse a revisor en la cláusula FROM.
+
+2. Conceptual: Uso innecesario de subquery y DISTINCT.
+   - ¿Por qué es un error? La consulta no requiere subconsultas anidadas para calcular la cantidad de tesis revisadas, ya que el enunciado solo pide listar los académicos con la mayor cantidad de revisas, sin ordenar ni limitar resultados. La solución es más directa y eficiente usando una sola subquery para agrupar y contar revisiones por académico.
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que revisar si el modelo identificó correctamente los errores esperados.
+
+Para cada error:
+- Si lo identificó y categorizó bien → cuenta como "correctamente identificado"
+- Si lo identificó pero mal catalogado → "mal catalogado"
+- Si no lo detectó → "no encontrado"
+- Si mencionó un error que no existe y no esta relacionado a un error mencionado → "inventado"
+
+```json
+{
+  "id_evaluacion": "Contexto2023-2_Ejercicio2_2023-2_Elementos Extras_qwen_qwen3-8b_free",
+  "contexto": "Contexto2023-2",
+  "ejercicio": "Ejercicio2_2023-2",
+  "tipo_evaluacion": "Elementos Extras",
+  "modelo_evaluado": "qwen/qwen3-8b:free",
+  "evaluacion": {
+    "errores_correctamente_identificados": null,
+    "errores_no_encontrados": null,
+    "errores_mal_catalogados": null,
+    "errores_inventados": null,
+    "tiempo_respuesta": 88.70
+  },
+  "errores_esperados_total": 2,
+  "errores_detectados_por_modelo": []
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+NOTA: Complete todos los campos null con valores numéricos apropiados

@@ -1,0 +1,6 @@
+Solución esperada para ejercicio (2023-2) ejercicio 3 para errores sintaxis: Detectar problemas en la redaccion de la solucion, las cuales generan errores de ejecucion del ejercicio.
+
+Errores esperados
+1. Error Sintaxis, DISTING en vez de DISTINCT
+2. Error Sintaxis, INNER JON en vez de INNER JOIN
+3. Error Sintaxis, Tabla mal escrita tecis en vez de tesis

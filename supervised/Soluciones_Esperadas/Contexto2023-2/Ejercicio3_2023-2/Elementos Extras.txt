@@ -1,0 +1,5 @@
+Solución esperada para ejercicio (2023-2) ejercicio 3 para Errores conseptuales: Detectar problemas en una respuesta la cual puede ser correcta, pero añade elementos no solicitados en el problema.
+
+Errores esperados
+1. Error conseptual, INNER JOIN inecesario con tabla revisor
+2. Error conseptual, Order by sin sentido

@@ -1,0 +1,10 @@
+--- Modelo: qwen/qwen3-235b-a22b:free
+--- Tiempo: 99.40s
+--- Largo: 491 caracteres
+--- Tokens entrada: 5199
+--- Tokens salida: 3746
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Uso de COUNT sin DISTINCT para contar destinos.
+   ¿Por qué es un error? El enunciado solicita el número de destinos *distintos* por cliente, pero la consulta cuenta todas las ocurrencias de destino (incluyendo repeticiones por múltiples viajes al mismo lugar). Esto genera valores erroneamente altos (ej: Juan tiene 6 en lugar de 3 destinos únicos). La solución correcta requiere usar COUNT(DISTINCT viaje.destino) para eliminar duplicados antes de contar.

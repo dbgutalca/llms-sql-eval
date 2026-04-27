@@ -1,0 +1,20 @@
+- Respuesta estudiante -
+
+SELECT cliente.nombre, COUNT(DISTINCT viaje.destino)
+FROM cliente
+INNER JOIN ticket ON ticket.refcliente = cliente.id
+INNER JOIN viaje ON ticket.refviaje = viaje.id
+GROUP BY cliente.id, cliente.nombre;
+
+- Tabla resultante de estudiante -
+
+|nombre  |count|
+|--------|-----|
+|Juan    | 3   |
+|Ivan    | 2   |
+|Alex    | 3   | 
+|Oscar   | 2   |
+|Gerardo | 2   |
+|William | 2   |
+|Welton  | 3   |
+|Aldo    | 3   |

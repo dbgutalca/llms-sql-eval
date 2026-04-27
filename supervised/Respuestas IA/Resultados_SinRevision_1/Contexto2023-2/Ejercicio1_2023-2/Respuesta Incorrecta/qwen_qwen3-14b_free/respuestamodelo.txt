@@ -1,0 +1,16 @@
+--- Modelo: qwen/qwen3-14b:free
+--- Tiempo: 40.62s
+--- Largo: 836 caracteres
+--- Tokens entrada: 3939
+--- Tokens salida: 2566
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Grupo incorrecto en GROUP BY.
+   - ¿Por qué es un error? Se agrupa por `academico.nombre` y `tesis.ref_estudiante`, lo que genera múltiples registros por académico. Cada grupo debe agrupar solo por `academico.id` (PK) y `academico.nombre` (para manejar nombres duplicados) para evitar divisiones no deseadas.
+
+2. Conceptual: Alias de columna incorrecto.
+   - ¿Por qué es un error? Se usa `estudiantes` en lugar de `nro_estudiantes` como nombre de la columna de conteo, aunque el resultado sea correcto, el alias no coincidió con el solicitado en el enunciado.
+
+3. Conceptual: Inclusión innecesaria de `tesis.ref_estudiante` en GROUP BY.
+   - ¿Por qué es un error? `tesis.ref_estudiante` se incluye en el `GROUP BY` sin necesidad, ya que no se requiere para el resultado final ni para evitar duplicados.

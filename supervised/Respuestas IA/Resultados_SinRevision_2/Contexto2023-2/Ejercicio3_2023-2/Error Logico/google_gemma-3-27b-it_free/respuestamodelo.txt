@@ -1,0 +1,16 @@
+--- Modelo: google/gemma-3-27b-it:free
+--- Tiempo: 5.23s
+--- Largo: 614 caracteres
+--- Tokens entrada: 3878
+--- Tokens salida: 155
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Error lógico: El uso de SUM en el WHERE.
+   ¿Por qué es un error? La cláusula WHERE se utiliza para filtrar filas antes de la agregación, mientras que las funciones agregadas como SUM se usan con la cláusula HAVING para filtrar resultados después de la agregación.
+
+2. Error conceptual: La consulta incluye SELECT autor_id.
+   ¿Por qué es un error? El enunciado solicita listar el *nombre* del autor, no su ID.
+
+3. Error lógico: Filtro incorrecto de la cantidad.
+   ¿Por qué es un error? El enunciado pide listar los autores con más de 5 ventas totales, pero el WHERE usa < en lugar de >.

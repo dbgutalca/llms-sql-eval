@@ -1,0 +1,92 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-1_Ejercicio3_2023-1_Respuesta Incorrecta_google_gemma-3-4b-it_free
+CONTEXTO: Contexto2023-1
+EJERCICIO: Ejercicio3_2023-1
+TIPO DE EVALUACIÓN: Respuesta Incorrecta
+MODELO EVALUADO: google/gemma-3-4b-it:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-09-29 01:38:35
+TIEMPO RESPUESTA: 5.13 segundos
+TOKENS ENTRADA: 4148
+TOKENS SALIDA: 0
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-1) ejercicio 3 para respuestas incorrectas: Detectar si el modelo encuentra la respuesta del estudiante incorrecta
+
+Errores esperados
+1. La respuesta del estudiante es incorrecta.
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+SELECT cliente.nombre, count(ticket.id) as ticket
+FROM cliente
+INNER JOIN ticket ON ticket.refcliente = cliente.id
+group by cliente.nombre
+Order by ticket DESC
+Limit 1;
+
+- Tabla resultante de estudiante -
+
+|nombre|ticket|
+|------|------|
+|Alex  |6     |
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+Errores identificados:
+1.  logico: La consulta no retorna la cantidad de tickets de cada cliente, sino la cantidad de tickets de un cliente en particular.
+    - ¿Por qué es un error? La consulta no considera la cantidad de tickets de todos los clientes, sino solo la de uno.
+2.  logico: La consulta no retorna los clientes que tienen la mayor cantidad de tickets, sino el primer cliente que cumple con la condición.
+    - ¿Por qué es un error? La consulta ordena los resultados de forma descendente por la cantidad de tickets y luego toma el primer registro, lo cual no garantiza que sea el cliente con la mayor cantidad de tickets.
+3.  Error conceptual: Uso innecesario de ORDER BY y LIMIT.
+    - ¿Por qué es un error? La consulta no necesita ordenar los resultados ni limitar el número de registros devueltos.
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que evaluar si el modelo puede determinar si una respuesta es correcta o incorrecta si es el caso de respuesta correcta e identifica como correcta, el modelo si pudo identificar entonces es True, en el caso de incorrecta lo mismo.
+
+```json
+{
+  "id_evaluacion": "Contexto2023-1_Ejercicio3_2023-1_Respuesta Incorrecta_google_gemma-3-4b-it_free",
+  "contexto": "Contexto2023-1",
+  "ejercicio": "Ejercicio3_2023-1",
+  "tipo_evaluacion": "Respuesta Incorrecta",
+  "modelo_evaluado": "google/gemma-3-4b-it:free",
+  "evaluacion": {
+    "detecto_correctamente": null,
+    "tiempo_respuesta": 5.13
+  }
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+detecto_correctamente: true si el modelo dijo que la respuesta es correcta/incorrecta y coincide con lo esperado
+NOTA: Complete todos los campos null con valores apropiados (true/false o números)

@@ -1,0 +1,13 @@
+--- Modelo: qwen/qwen3-14b:free
+--- Tiempo: 30.21s
+--- Largo: 516 caracteres
+--- Tokens entrada: 3819
+--- Tokens salida: 1612
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Filtro de año incorrecto.
+   - ¿Por qué es un error? La condición `WHERE anio_ingreso = 2018` está mal, ya que el enunciado especifica que se deben considerar solo estudiantes que ingresaron en **2019**.
+
+2. Conceptual: Falta el uso de `DISTINCT`.
+   - ¿Por qué es un error? La consulta no incluye `DISTINCT`, lo que podría generar nombres repetidos de académicos si un tutor tiene múltiples tesis relacionadas con estudiantes de 2019. El enunciado exige **no repetir** los nombres.

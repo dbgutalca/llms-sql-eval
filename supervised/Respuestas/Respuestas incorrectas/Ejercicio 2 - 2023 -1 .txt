@@ -1,0 +1,21 @@
+- Respuesta estudiante -
+
+select cliente.nombre, count(viaje.destino) 
+from cliente, viaje, ticket
+where 
+ticket.refviaje = viaje.id and
+ticket.refcliente = cliente.id
+group by cliente.nombre;
+
+- Tabla resultante de estudiante -
+
+|nombre  |count|
+|--------|-----|
+|William |2    |
+|Oscar   |4    |
+|Alex    |6    |
+|Gerardo |2    |
+|Ivan    |4    |
+|Juan    |6    |
+|Aldo    |3    |
+|Welton  |3    |

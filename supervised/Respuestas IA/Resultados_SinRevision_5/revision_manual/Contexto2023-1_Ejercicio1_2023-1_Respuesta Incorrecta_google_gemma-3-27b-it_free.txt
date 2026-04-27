@@ -1,0 +1,99 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-1_Ejercicio1_2023-1_Respuesta Incorrecta_google_gemma-3-27b-it_free
+CONTEXTO: Contexto2023-1
+EJERCICIO: Ejercicio1_2023-1
+TIPO DE EVALUACIÓN: Respuesta Incorrecta
+MODELO EVALUADO: google/gemma-3-27b-it:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-10-02 19:12:41
+TIEMPO RESPUESTA: 7.21 segundos
+TOKENS ENTRADA: 4164
+TOKENS SALIDA: 267
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-1) ejercicio 1 para respuestas incorrectas: Detectar si el modelo encuentra la respuesta del estudiante incorrecta
+
+Errores esperados
+1. La respuesta del estudiante es incorrecta.
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+SELECT viaje.destino
+FROM cliente
+JOIN ticket ON ticket.refcliente = cliente.id
+JOIN viaje ON ticket.refviaje = viaje.id
+WHERE cliente.nombre = 'Juan';
+
+- Tabla resultante de estudiante -
+
+| destino |
+|---------|
+| Talca   |
+| Curicó  |
+| Talca   |
+| Curicó  |
+| Linares |
+| Curicó  |
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+o
+Errores identificados:
+1. Error Lógico: La condición WHERE es incorrecta.
+   ¿Por qué es un error? El enunciado solicita las ventas de libros de Realismo Mágico con total de ventas superior a 5. El estudiante aplica un filtro que requiere que el total de ventas sea menor a 5, es decir, se encuentra con la condición correcta.
+2. Error Conceptual: Uso de * en vez de especificar las columnas a mostrar.
+   ¿Por qué es un error? Aunque se obtienen resultados, usar '*' puede ser ineficiente y no indica específicamente qué información se necesita de las tablas involucradas.
+3. Error Lógico: Falta la cláusula HAVING.
+   ¿Por qué es un error?  La condición "incluyendo solo autores con más de 5 ventas totales" hace referencia al resultado agregado de la función SUM(), por lo que es necesario usar HAVING para filtrar los resultados del agrupamiento.
+4. Error Conceptual: Falta el `autor_id` en el `GROUP BY`.
+   ¿Por qué es un error? Se está agrupando por el nombre del autor, pero para garantizar la unicidad del agrupamiento y evitar posibles errores, se debe incluir también el ID del autor en la cláusula group by.
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que evaluar si el modelo puede determinar si una respuesta es correcta o incorrecta si es el caso de respuesta correcta e identifica como correcta, el modelo si pudo identificar entonces es True, en el caso de incorrecta lo mismo.
+
+```json
+{
+  "id_evaluacion": "Contexto2023-1_Ejercicio1_2023-1_Respuesta Incorrecta_google_gemma-3-27b-it_free",
+  "contexto": "Contexto2023-1",
+  "ejercicio": "Ejercicio1_2023-1",
+  "tipo_evaluacion": "Respuesta Incorrecta",
+  "modelo_evaluado": "google/gemma-3-27b-it:free",
+  "evaluacion": {
+    "detecto_correctamente": null,
+    "tiempo_respuesta": 7.21
+  }
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+detecto_correctamente: true si el modelo dijo que la respuesta es correcta/incorrecta y coincide con lo esperado
+NOTA: Complete todos los campos null con valores apropiados (true/false o números)

@@ -1,0 +1,113 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-2_Ejercicio3_2023-2_Respuesta Incorrecta_meta-llama_llama-4-maverick_free
+CONTEXTO: Contexto2023-2
+EJERCICIO: Ejercicio3_2023-2
+TIPO DE EVALUACIÓN: Respuesta Incorrecta
+MODELO EVALUADO: meta-llama/llama-4-maverick:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-09-29 00:28:52
+TIEMPO RESPUESTA: 4.96 segundos
+TOKENS ENTRADA: 3527
+TOKENS SALIDA: 318
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-2) ejercicio 3 para respuestas incorrectas: Detectar si el modelo encuentra la respuesta del estudiante incorrecta
+
+Errores esperados
+1. La respuesta del estudiante es incorrecta.
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+SELECT academico.nombre
+FROM tesis INNER JOIN academico ON academico.id = ref_tutor 
+INNER JOIN estudiante ON estudiante.id = ref_estudiante
+WHERE anio_ingreso = 2019;
+
+- Tabla resultante de estudiante -
+
+|nombre           |
+|-----------------|
+|Academico uno    |
+|Academico dos    |
+|Academico tres   |
+|Academico cuatro |
+|Academico cinco  |
+|Academico uno    |
+|Academico dos    |
+|Academico tres   |
+|Academico cuatro |
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+Errores identificados:
+   1. Lógico: Duplicidad de resultados.
+      - ¿Por qué es un error? La consulta del estudiante no elimina los duplicados porque no utiliza `DISTINCT`. Esto resulta en nombres de académicos repetidos si han sido tutores de más de una tesis de estudiantes que ingresaron en 2019.
+
+   2. Conceptual: Uso de INNER JOIN en lugar de sintaxis implícita.
+      - ¿Por qué es un error? Aunque ambos métodos son válidos y llegan al mismo resultado, el uso de `INNER JOIN` explícito es conceptualmente más claro y preferido en la industria. Sin embargo, este no es un error en sí mismo, ya que ambas formas son aceptadas en SQL.
+
+Solución correcta ajustada al error:
+   La corrección necesaria sería agregar `DISTINCT` para eliminar duplicados:
+   ```sql
+SELECT DISTINCT academico.nombre
+FROM tesis 
+INNER JOIN academico ON academico.id = ref_tutor 
+INNER JOIN estudiante ON estudiante.id = ref_estudiante
+WHERE anio_ingreso = 2019;
+```
+
+Sin embargo, según el formato solicitado, solo se proporciona la identificación de errores sin la corrección:
+
+Errores identificados:
+   1. Lógico: Duplicidad de resultados.
+      - ¿Por qué es un error? La consulta del estudiante no elimina los duplicados porque no utiliza `DISTINCT`. Esto resulta en nombres de académicos repetidos si han sido tutores de más de una tesis de estudiantes que ingresaron en 2019.
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que evaluar si el modelo puede determinar si una respuesta es correcta o incorrecta si es el caso de respuesta correcta e identifica como correcta, el modelo si pudo identificar entonces es True, en el caso de incorrecta lo mismo.
+
+```json
+{
+  "id_evaluacion": "Contexto2023-2_Ejercicio3_2023-2_Respuesta Incorrecta_meta-llama_llama-4-maverick_free",
+  "contexto": "Contexto2023-2",
+  "ejercicio": "Ejercicio3_2023-2",
+  "tipo_evaluacion": "Respuesta Incorrecta",
+  "modelo_evaluado": "meta-llama/llama-4-maverick:free",
+  "evaluacion": {
+    "detecto_correctamente": null,
+    "tiempo_respuesta": 4.96
+  }
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+detecto_correctamente: true si el modelo dijo que la respuesta es correcta/incorrecta y coincide con lo esperado
+NOTA: Complete todos los campos null con valores apropiados (true/false o números)

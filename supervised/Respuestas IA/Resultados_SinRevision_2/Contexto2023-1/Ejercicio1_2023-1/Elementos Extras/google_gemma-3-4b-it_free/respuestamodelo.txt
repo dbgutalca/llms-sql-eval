@@ -1,0 +1,13 @@
+--- Modelo: google/gemma-3-4b-it:free
+--- Tiempo: 4.00s
+--- Largo: 398 caracteres
+--- Tokens entrada: 4083
+--- Tokens salida: 0
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1.  logico: Uso innecesario de JOIN con la tabla cliente.
+    - ¿Por qué es un error? La tabla cliente no es necesaria para obtener los campos solicitados (destino está en la tabla viaje).
+
+2.  logico: Uso innecesario de WHERE cliente.nombre != 'Pedro'.
+    - ¿Por qué es un error? El enunciado solo pide los viajes del cliente "Juan", no los que no sean del cliente "Pedro".

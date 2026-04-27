@@ -1,0 +1,13 @@
+--- Modelo: qwen/qwen3-14b:free
+--- Tiempo: 9.02s
+--- Largo: 620 caracteres
+--- Tokens entrada: 4182
+--- Tokens salida: 584
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Uso incorrecto de COUNT sin DISTINCT.
+   - ¿Por qué es un error? La consulta debe contar destinos DISTINCTOS, pero el estudiante usó `COUNT(viaje.destino)` sin `DISTINCT`, lo que incluiría destinos repetidos y generaría un conteo incorrecto.
+
+2. Conceptual: Falta de `cliente.id` en la cláusula GROUP BY.
+   - ¿Por qué es un error? Según las reglas de SQL, cuando se usan columnas no agregadas en el SELECT (como `cliente.nombre`), también deben estar presentes en el GROUP BY. Aunque en este caso los nombres son únicos, la consulta no es óptima ni cumple con la norma de agrupamiento.

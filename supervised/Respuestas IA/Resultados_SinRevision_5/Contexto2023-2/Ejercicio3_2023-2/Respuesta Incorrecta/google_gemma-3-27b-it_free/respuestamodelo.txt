@@ -1,0 +1,10 @@
+--- Modelo: google/gemma-3-27b-it:free
+--- Tiempo: 2.15s
+--- Largo: 208 caracteres
+--- Tokens entrada: 3957
+--- Tokens salida: 52
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: No se aplica la restricción DISTINCT.
+   - ¿Por qué es un error? La consulta retorna nombres de académicos repetidos, mientras que el problema indica que no se deben repetir.

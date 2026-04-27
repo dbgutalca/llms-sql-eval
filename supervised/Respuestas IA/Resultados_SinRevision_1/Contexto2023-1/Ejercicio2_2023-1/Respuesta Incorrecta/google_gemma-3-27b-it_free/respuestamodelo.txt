@@ -1,0 +1,10 @@
+--- Modelo: google/gemma-3-27b-it:free
+--- Tiempo: 3.20s
+--- Largo: 281 caracteres
+--- Tokens entrada: 4278
+--- Tokens salida: 75
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Falta el uso de DISTINCT en la función COUNT.
+   - ¿Por qué es un error?  El enunciado pide el número de destinos *distintos* a los que ha viajado cada cliente. Sin `DISTINCT`, se cuentan todas las visitas a cada destino, incluso si son múltiples.

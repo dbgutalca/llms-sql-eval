@@ -1,0 +1,10 @@
+- Respuesta estudiante -
+
+SELECT DISTINCT viaje.destino
+FROM cliente
+JOIN ticket ticket.refcliente == cliente.id
+JOIN viaje ticket.refviaje == viaje.id
+WHERE cliente.nombre == "Juan";
+
+- Tabla resultante de estudiante -
+

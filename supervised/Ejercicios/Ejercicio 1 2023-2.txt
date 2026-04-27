@@ -1,0 +1,21 @@
+- Enunciado -
+
+Retornar una tabla con los atributos "nombre_academico" y "nro_estudiantes", la cual muestra, para cada académico, el número de estudiantes de los cuales ha sido tutor. La consulta debe diferenciar a los académicos con el mismo nombre.
+
+- Respuesta correcta -
+
+select academico.nombre as nombre_academico, count(ref_estudiante) as nro_estudiantes
+from academico, tesis
+where
+tesis.ref_tutor = academico.id
+group by academico.id
+
+- Tabla esperada -
+
+|nombre_academico |nro_estudiantes|
+|-----------------|---------------|
+|Academico cuatro |2              |
+|Academico dos    |2              |
+|Academico tres   |2              |
+|Academico cinco  |1              |
+|Academico uno    |2              |

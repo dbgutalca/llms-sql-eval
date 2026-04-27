@@ -1,0 +1,106 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-1_Ejercicio2_2023-1_Error Sintaxis_mistralai_mistral-nemo_free
+CONTEXTO: Contexto2023-1
+EJERCICIO: Ejercicio2_2023-1
+TIPO DE EVALUACIÓN: Error Sintaxis
+MODELO EVALUADO: mistralai/mistral-nemo:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-09-29 00:11:09
+TIEMPO RESPUESTA: 10.05 segundos
+TOKENS ENTRADA: 4076
+TOKENS SALIDA: 444
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-1) ejercicio 2 para errores sintaxis: Detectar problemas en la redaccion de la solucion, las cuales generan errores de ejecucion del ejercicio.
+
+Errores esperados
+1. Error Sintaxis, aucencia de parentesis
+2. Error Sintaxis, Doble igual
+3. Error Sintaxis, Falta ON para JOIN
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+SELECT cliente.nombre, COUNT DISTINCT viaje.destino
+FROM cliente
+INNER JOIN ticket ticket.refcliente == cliente.id
+INNER JOIN viaje ticket.refviaje == viaje.id
+GROUP BY cliente.id, cliente.nombre;
+
+- Tabla resultante de estudiante -
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+Errores identificados:
+1. Lógico: Falta el uso de COUNT en lugar de COUNT DISTINCT.
+   - ¿Por qué es un error? COUNT DISTINCT es una función que cuenta el número de valores distintos en una columna. En este caso, se desea contar el número de destinos distintos por cliente, por lo que se debe utilizar COUNT(DISTINCT viaje.destino) en lugar de COUNT DISTINCT viaje.destino.
+
+2. Lógico: Falta el uso de la cláusula WHERE.
+   - ¿Por qué es un error? La cláusula WHERE se utiliza para filtrar registros en una tabla. En este caso, se desea filtrar los registros de la tabla ticket para que solo se incluyan aquellos en los que el campo refcliente coincida con el campo id de la tabla cliente y el campo refviaje coincida con el campo id de la tabla viaje. Por lo tanto, se debe agregar la cláusula WHERE con las condiciones ticket.refcliente == cliente.id AND ticket.refviaje == viaje.id.
+
+3. Sintaxis: Falta el uso de comillas alrededor del nombre de la columna COUNT.
+   - ¿Por qué es un error? En SQL, los nombres de las columnas deben estar rodeados de comillas cuando se utilizan en una consulta. Por lo tanto, se debe agregar comillas alrededor del nombre de la columna COUNT, es decir, COUNT(DISTINCT viaje.destino) en lugar de COUNT DISTINCT viaje.destino.
+
+4. Lógico: Falta el uso de la cláusula GROUP BY.
+   - ¿Por qué es un error? La cláusula GROUP BY se utiliza para agrupar registros en una tabla en función de uno o más campos. En este caso, se desea agrupar los registros de la tabla cliente en función del campo id y el campo nombre. Por lo tanto, se debe agregar la cláusula GROUP BY con los campos cliente.id y cliente.nombre.
+
+En resumen, la respuesta del estudiante contiene varios errores lógicos y de sintaxis que deben ser corregidos para obtener la tabla esperada.
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que revisar si el modelo identificó correctamente los errores esperados.
+
+Para cada error:
+- Si lo identificó y categorizó bien → cuenta como "correctamente identificado"
+- Si lo identificó pero mal catalogado → "mal catalogado"
+- Si no lo detectó → "no encontrado"
+- Si mencionó un error que no existe y no esta relacionado a un error mencionado → "inventado"
+
+```json
+{
+  "id_evaluacion": "Contexto2023-1_Ejercicio2_2023-1_Error Sintaxis_mistralai_mistral-nemo_free",
+  "contexto": "Contexto2023-1",
+  "ejercicio": "Ejercicio2_2023-1",
+  "tipo_evaluacion": "Error Sintaxis",
+  "modelo_evaluado": "mistralai/mistral-nemo:free",
+  "evaluacion": {
+    "errores_correctamente_identificados": null,
+    "errores_no_encontrados": null,
+    "errores_mal_catalogados": null,
+    "errores_inventados": null,
+    "tiempo_respuesta": 10.05
+  },
+  "errores_esperados_total": 3,
+  "errores_detectados_por_modelo": []
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+NOTA: Complete todos los campos null con valores numéricos apropiados

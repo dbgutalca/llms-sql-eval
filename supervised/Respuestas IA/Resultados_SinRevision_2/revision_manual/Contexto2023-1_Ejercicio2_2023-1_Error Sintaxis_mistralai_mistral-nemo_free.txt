@@ -1,0 +1,166 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-1_Ejercicio2_2023-1_Error Sintaxis_mistralai_mistral-nemo_free
+CONTEXTO: Contexto2023-1
+EJERCICIO: Ejercicio2_2023-1
+TIPO DE EVALUACIÓN: Error Sintaxis
+MODELO EVALUADO: mistralai/mistral-nemo:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-09-29 01:37:14
+TIEMPO RESPUESTA: 32.18 segundos
+TOKENS ENTRADA: 4076
+TOKENS SALIDA: 1649
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-1) ejercicio 2 para errores sintaxis: Detectar problemas en la redaccion de la solucion, las cuales generan errores de ejecucion del ejercicio.
+
+Errores esperados
+1. Error Sintaxis, aucencia de parentesis
+2. Error Sintaxis, Doble igual
+3. Error Sintaxis, Falta ON para JOIN
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+SELECT cliente.nombre, COUNT DISTINCT viaje.destino
+FROM cliente
+INNER JOIN ticket ticket.refcliente == cliente.id
+INNER JOIN viaje ticket.refviaje == viaje.id
+GROUP BY cliente.id, cliente.nombre;
+
+- Tabla resultante de estudiante -
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+Errores identificados:
+1. Lógico: Falta el uso de COUNT(DISTINCT) en la consulta.
+   - ¿Por qué es un error? La respuesta del estudiante utiliza COUNT sin especificar DISTINCT, lo que podría contar destinos no únicos para cada cliente.
+
+2. Lógico: Falta el uso de comillas simples en la columna COUNT.
+   - ¿Por qué es un error? La respuesta del estudiante utiliza "COUNT" sin comillas simples, lo que podría generar un error de sintaxis.
+
+3. Sintaxis: Falta el uso de AS para asignar un alias a la columna COUNT.
+   - ¿Por qué es un error? La respuesta del estudiante no utiliza AS para asignar un alias a la columna COUNT, lo que podría generar un error de sintaxis.
+
+4. Lógico: Falta el uso de la cláusula WHERE para filtrar los resultados.
+   - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula WHERE para filtrar los resultados, lo que podría generar una tabla con resultados no deseados.
+
+5. Lógico: Falta el uso de la cláusula GROUP BY para agrupar los resultados.
+   - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula GROUP BY para agrupar los resultados, lo que podría generar una tabla con resultados no deseados.
+
+6. Lógico: Falta el uso de la cláusula ORDER BY para ordenar los resultados.
+   - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula ORDER BY para ordenar los resultados, lo que podría generar una tabla con resultados no deseados.
+
+7. Lógico: Falta el uso de la cláusula HAVING para filtrar los resultados agrupados.
+   - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula HAVING para filtrar los resultados agrupados, lo que podría generar una tabla con resultados no deseados.
+
+8. Lógico: Falta el uso de la cláusula LIMIT para limitar el número de resultados.
+   - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula LIMIT para limitar el número de resultados, lo que podría generar una tabla con resultados no deseados.
+
+9. Lógico: Falta el uso de la cláusula OFFSET para omitir los primeros resultados.
+   - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula OFFSET para omitir los primeros resultados, lo que podría generar una tabla con resultados no deseados.
+
+10. Lógico: Falta el uso de la cláusula FETCH NEXT para obtener un número específico de resultados.
+    - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula FETCH NEXT para obtener un número específico de resultados, lo que podría generar una tabla con resultados no deseados.
+
+11. Lógico: Falta el uso de la cláusula FOR XML PATH para convertir los resultados en XML.
+    - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula FOR XML PATH para convertir los resultados en XML, lo que podría generar una tabla con resultados no deseados.
+
+12. Lógico: Falta el uso de la cláusula INTO para almacenar los resultados en una tabla temporal.
+    - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula INTO para almacenar los resultados en una tabla temporal, lo que podría generar una tabla con resultados no deseados.
+
+13. Lógico: Falta el uso de la cláusula WITH para crear una tabla temporal.
+    - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula WITH para crear una tabla temporal, lo que podría generar una tabla con resultados no deseados.
+
+14. Lógico: Falta el uso de la cláusula CROSS APPLY para unir dos tablas.
+    - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula CROSS APPLY para unir dos tablas, lo que podría generar una tabla con resultados no deseados.
+
+15. Lógico: Falta el uso de la cláusula OUTER APPLY para unir dos tablas.
+    - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula OUTER APPLY para unir dos tablas, lo que podría generar una tabla con resultados no deseados.
+
+16. Lógico: Falta el uso de la cláusula PIVOT para convertir columnas en filas.
+    - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula PIVOT para convertir columnas en filas, lo que podría generar una tabla con resultados no deseados.
+
+17. Lógico: Falta el uso de la cláusula UNPIVOT para convertir filas en columnas.
+    - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula UNPIVOT para convertir filas en columnas, lo que podría generar una tabla con resultados no deseados.
+
+18. Lógico: Falta el uso de la cláusula ROW_NUMBER() para asignar un número a cada fila.
+    - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula ROW_NUMBER() para asignar un número a cada fila, lo que podría generar una tabla con resultados no deseados.
+
+19. Lógico: Falta el uso de la cláusula RANK() para asignar un número a cada fila en función de un valor.
+    - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula RANK() para asignar un número a cada fila en función de un valor, lo que podría generar una tabla con resultados no deseados.
+
+20. Lógico: Falta el uso de la cláusula DENSE_RANK() para asignar un número a cada fila en función de un valor.
+    - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula DENSE_RANK() para asignar un número a cada fila en función de un valor, lo que podría generar una tabla con resultados no deseados.
+
+21. Lógico: Falta el uso de la cláusula LEAD() para obtener el valor de la siguiente fila.
+    - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula LEAD() para obtener el valor de la siguiente fila, lo que podría generar una tabla con resultados no deseados.
+
+22. Lógico: Falta el uso de la cláusula LAG() para obtener el valor de la fila anterior.
+    - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula LAG() para obtener el valor de la fila anterior, lo que podría generar una tabla con resultados no deseados.
+
+23. Lógico: Falta el uso de la cláusula OVER() para aplicar una función a un conjunto de filas.
+    - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula OVER() para aplicar una función a un conjunto de filas, lo que podría generar una tabla con resultados no deseados.
+
+24. Lógico: Falta el uso de la cláusula PARTITION BY para dividir los resultados en particiones.
+    - ¿Por qué es un error? La respuesta del estudiante no utiliza la cláusula PARTITION BY para dividir los resultados en particiones, lo que podría generar una tabla con resultados no deseados.
+
+25. Lógico: Falta el uso de la cláusula ORDER BY para ordenar los resultados en una consulta sub
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que revisar si el modelo identificó correctamente los errores esperados.
+
+Para cada error:
+- Si lo identificó y categorizó bien → cuenta como "correctamente identificado"
+- Si lo identificó pero mal catalogado → "mal catalogado"
+- Si no lo detectó → "no encontrado"
+- Si mencionó un error que no existe y no esta relacionado a un error mencionado → "inventado"
+
+```json
+{
+  "id_evaluacion": "Contexto2023-1_Ejercicio2_2023-1_Error Sintaxis_mistralai_mistral-nemo_free",
+  "contexto": "Contexto2023-1",
+  "ejercicio": "Ejercicio2_2023-1",
+  "tipo_evaluacion": "Error Sintaxis",
+  "modelo_evaluado": "mistralai/mistral-nemo:free",
+  "evaluacion": {
+    "errores_correctamente_identificados": null,
+    "errores_no_encontrados": null,
+    "errores_mal_catalogados": null,
+    "errores_inventados": null,
+    "tiempo_respuesta": 32.18
+  },
+  "errores_esperados_total": 3,
+  "errores_detectados_por_modelo": []
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+NOTA: Complete todos los campos null con valores numéricos apropiados

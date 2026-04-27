@@ -1,0 +1,22 @@
+- Respuesta estudiante -
+
+SELECT cliente.nombre, COUNT(DISTINCT viaje.destino)
+FROM cliente
+INNER JOIN ticket ON ticket.refcliente = cliente.id
+INNER JOIN viaje ON ticket.refviaje = viaje.id
+WHERE cliente.edad < 100
+GROUP BY cliente.id, cliente.nombre
+ORDER BY cliente.nombre;
+
+- Tabla resultante de estudiante -
+
+|nombre |count|
+|-------|-----|
+|Aldo   |3    |
+|Alex   |3    |
+|Gerardo|2    |
+|Ivan   |2    |
+|Juan   |3    |
+|Oscar  |2    |
+|Welton |3    |
+|William|2    |

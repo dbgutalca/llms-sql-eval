@@ -1,0 +1,19 @@
+--- Modelo: qwen/qwen3-8b:free
+--- Tiempo: 49.97s
+--- Largo: 974 caracteres
+--- Tokens entrada: 3822
+--- Tokens salida: 2796
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:  
+1. Error de sintaxis: Uso incorrecto de "DISTING" en lugar de "DISTINCT".  
+   - ¿Por qué es un error? La palabra clave "DISTINCT" se debe escribir correctamente para evitar duplicados en el resultado. "DISTING" no es una instrucción válida en SQL.  
+
+2. Error de sintaxis: "JON" en lugar de "JOIN".  
+   - ¿Por qué es un error? La palabra clave "JOIN" está mal escrita, lo que invalida la sintaxis del comando de unión.  
+
+3. Error de sintaxis: Tabla "tecis" en lugar de "tesis".  
+   - ¿Por qué es un error? La tabla "tecis" no existe; el nombre correcto es "tesis", lo que hace que la consulta no se ejecute.  
+
+4. Error de sintaxis: Falta de cualificación de la columna "anio_ingreso" en la cláusula WHERE.  
+   - ¿Por qué es un error? Aunque "anio_ingreso" está en la tabla "estudiante", su uso sin referenciar el nombre de la tabla podría causar ambigüedad o errores de contexto, especialmente si hubiera duplicados de columnas en la consulta.

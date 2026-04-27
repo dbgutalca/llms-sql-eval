@@ -1,0 +1,20 @@
+- Respuesta estudiante -
+
+SELECT academico.nombre
+FROM academico
+INNER JOIN tesis ON tesis.ref_estudiante = academico.id
+
+
+- Tabla resultante de estudiante -
+
+|nombre           |
+|-----------------|
+|Academico uno    |
+|Academico dos    |
+|Academico tres   |
+|Academico cuatro |
+|Academico cinco  |
+|Academico seis   |
+|Academico siete  |
+|Academico ocho   |
+|Academico nueve  |

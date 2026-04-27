@@ -1,0 +1,9 @@
+--- Modelo: qwen/qwen3-30b-a3b:free
+--- Tiempo: 8.68s
+--- Largo: 28 caracteres
+--- Tokens entrada: 4061
+--- Tokens salida: 386
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+None.

@@ -1,0 +1,105 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-2_Ejercicio2_2023-2_Error Logico_x-ai_grok-4-fast_free
+CONTEXTO: Contexto2023-2
+EJERCICIO: Ejercicio2_2023-2
+TIPO DE EVALUACIÓN: Error Logico
+MODELO EVALUADO: x-ai/grok-4-fast:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-10-02 17:11:02
+TIEMPO RESPUESTA: 27.78 segundos
+TOKENS ENTRADA: 3727
+TOKENS SALIDA: 1018
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-2) ejercicio 2 para errores lógicos: Detectar problemas en la lógica de negocio, condiciones mal planteadas o interpretación incorrecta del problema.
+
+Errores esperados
+1. Error lógico, Usa operadores prohibidos
+2. Error lógico, No muestra todos académicos
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+SELECT academico.nombre AS rev_nombre
+FROM academico
+JOIN revisor ON revisor.ref_academico = academico.id
+GROUP BY academico.id, academico.nombre
+ORDER BY COUNT(revisor.ref_tesis) DESC
+LIMIT 1;
+
+- Tabla resultante de estudiante -
+
+|rev_nombre      |
+|----------------|
+|Academico cuatro|
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+Errores identificados:
+1. Error lógico: Uso de LIMIT 1 que restringe el resultado a un solo registro.
+   ¿Por qué es un error? El enunciado requiere listar todos los académicos con la mayor cantidad de revisiones (hay dos: "Academico cuatro" y "Academico cinco", ambos con 5), pero LIMIT 1 solo devuelve uno, omitiendo la segunda fila esperada.
+
+2. Error lógico: Uso de ORDER BY para ordenar por conteo descendente.
+   ¿Por qué es un error? Aunque la consulta se ejecuta y genera un resultado parcial, el uso de ORDER BY viola la restricción explícita del enunciado ("No se permite el uso de order-by, offset o limit"), y no es necesario para identificar los académicos con el máximo conteo sin ordenar.
+
+3. Error conceptual: Inclusión de GROUP BY innecesariamente redundante.
+   ¿Por qué es un error? Aunque no afecta el resultado en este caso, agrupar por academico.id y academico.nombre es superfluo ya que id es clave primaria; podría simplificarse a solo GROUP BY academico.id, pero esto no optimiza la consulta según el requerimiento básico de obtener nombres sin pasos extras.
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que revisar si el modelo identificó correctamente los errores esperados.
+
+Para cada error:
+- Si lo identificó y categorizó bien → cuenta como "correctamente identificado"
+- Si lo identificó pero mal catalogado → "mal catalogado"
+- Si no lo detectó → "no encontrado"
+- Si mencionó un error que no existe y no esta relacionado a un error mencionado → "inventado"
+
+```json
+{
+  "id_evaluacion": "Contexto2023-2_Ejercicio2_2023-2_Error Logico_x-ai_grok-4-fast_free",
+  "contexto": "Contexto2023-2",
+  "ejercicio": "Ejercicio2_2023-2",
+  "tipo_evaluacion": "Error Logico",
+  "modelo_evaluado": "x-ai/grok-4-fast:free",
+  "evaluacion": {
+    "errores_correctamente_identificados": null,
+    "errores_no_encontrados": null,
+    "errores_mal_catalogados": null,
+    "errores_inventados": null,
+    "tiempo_respuesta": 27.78
+  },
+  "errores_esperados_total": 2,
+  "errores_detectados_por_modelo": []
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+NOTA: Complete todos los campos null con valores numéricos apropiados

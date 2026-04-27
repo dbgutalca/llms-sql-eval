@@ -1,0 +1,8 @@
+--- Modelo: qwen/qwen3-coder:free
+--- Tiempo: 0.00s
+--- Largo: 150 caracteres
+--- Tokens entrada: 0
+--- Tokens salida: 0
+--- Éxito: False
+--- Respuesta del Modelo:
+Error después de 35 intentos: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions

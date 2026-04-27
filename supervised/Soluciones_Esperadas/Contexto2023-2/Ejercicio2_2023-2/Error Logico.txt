@@ -1,0 +1,5 @@
+Solución esperada para ejercicio (2023-2) ejercicio 2 para errores lógicos: Detectar problemas en la lógica de negocio, condiciones mal planteadas o interpretación incorrecta del problema.
+
+Errores esperados
+1. Error lógico, Usa operadores prohibidos
+2. Error lógico, No muestra todos académicos

@@ -1,0 +1,8 @@
+--- Modelo: qwen/qwen3-8b:free
+--- Tiempo: 28.16s
+--- Largo: 0 caracteres
+--- Tokens entrada: 3829
+--- Tokens salida: 1846
+--- Éxito: True
+--- Respuesta del Modelo:
+

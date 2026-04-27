@@ -1,0 +1,9 @@
+--- Modelo: google/gemma-3-27b-it:free
+--- Tiempo: 3.20s
+--- Largo: 47 caracteres
+--- Tokens entrada: 3927
+--- Tokens salida: 14
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+No hay error encontrado.

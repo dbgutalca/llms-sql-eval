@@ -1,0 +1,12 @@
+--- Modelo: google/gemma-3-12b-it:free
+--- Tiempo: 2.94s
+--- Largo: 205 caracteres
+--- Tokens entrada: 3985
+--- Tokens salida: 53
+--- Éxito: True
+--- Respuesta del Modelo:
+de situación.
+
+Errores identificados:
+   [1. Tipo de error: Error Lógico]
+        ¿Por qué es un error? La consulta no está incluyendo todos los tutores. Solo muestra los que tienen al menos un estudiante.

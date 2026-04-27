@@ -1,0 +1,14 @@
+- Respuesta estudiante -
+
+SELECT cliente.nombre, count(ticket.id) as ticket
+FROM cliente
+INNER JOIN ticket ON ticket.refcliente = cliente.id
+group by cliente.nombre
+Order by ticket DESC
+Limit 1;
+
+- Tabla resultante de estudiante -
+
+|nombre|ticket|
+|------|------|
+|Alex  |6     |

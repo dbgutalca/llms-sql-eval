@@ -1,0 +1,3 @@
+- Problema -
+
+Retornar una tabla con los nombres de los clientes que han comprado la mayor cantidad de tickets.

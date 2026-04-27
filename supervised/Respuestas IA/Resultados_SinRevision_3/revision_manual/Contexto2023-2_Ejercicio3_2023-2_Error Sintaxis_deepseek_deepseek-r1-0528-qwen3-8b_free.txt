@@ -1,0 +1,105 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-2_Ejercicio3_2023-2_Error Sintaxis_deepseek_deepseek-r1-0528-qwen3-8b_free
+CONTEXTO: Contexto2023-2
+EJERCICIO: Ejercicio3_2023-2
+TIPO DE EVALUACIÓN: Error Sintaxis
+MODELO EVALUADO: deepseek/deepseek-r1-0528-qwen3-8b:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-09-30 17:00:32
+TIEMPO RESPUESTA: 4.43 segundos
+TOKENS ENTRADA: 3818
+TOKENS SALIDA: 600
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-2) ejercicio 3 para errores sintaxis: Detectar problemas en la redaccion de la solucion, las cuales generan errores de ejecucion del ejercicio.
+
+Errores esperados
+1. Error Sintaxis, DISTING en vez de DISTINCT
+2. Error Sintaxis, INNER JON en vez de INNER JOIN
+3. Error Sintaxis, Tabla mal escrita tecis en vez de tesis
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+SELECT DISTING academico.nombre
+FROM tecis INNER JON academico ON academico.id = ref_tutor 
+INNER JOIN estudiante ON estudiante.id = ref_estudiante
+WHERE anio_ingreso = 2019;
+
+
+- Tabla resultante de estudiante -
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+Errores identificados:
+1. Sintaxis: Palabra clave incorrecta
+   - ¿Por qué es un error? 'DISTING' no es una palabra clave válida de SQL. La palabra correcta es 'DISTINCT' para evitar duplicados.
+
+2. Sintaxis: Nombre de tabla incorrecto
+   - ¿Por qué es un error? 'tecis' no es el nombre correcto de la tabla en la base de datos. El nombre correcto es 'tesis'.  
+
+3. Lógico: Falta condición crítica en JOIN
+   - ¿Por qué es un error? La cláusula WHERE no incluye una condición que vincule 'estudiante.id' con el campo correcto de 'tesis'. Debería ser:
+   ```
+   WHERE tesis.ref_estudiante = estudiante.id 
+   AND estudiante.anio_ingreso = 2019
+   ```
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que revisar si el modelo identificó correctamente los errores esperados.
+
+Para cada error:
+- Si lo identificó y categorizó bien → cuenta como "correctamente identificado"
+- Si lo identificó pero mal catalogado → "mal catalogado"
+- Si no lo detectó → "no encontrado"
+- Si mencionó un error que no existe y no esta relacionado a un error mencionado → "inventado"
+
+```json
+{
+  "id_evaluacion": "Contexto2023-2_Ejercicio3_2023-2_Error Sintaxis_deepseek_deepseek-r1-0528-qwen3-8b_free",
+  "contexto": "Contexto2023-2",
+  "ejercicio": "Ejercicio3_2023-2",
+  "tipo_evaluacion": "Error Sintaxis",
+  "modelo_evaluado": "deepseek/deepseek-r1-0528-qwen3-8b:free",
+  "evaluacion": {
+    "errores_correctamente_identificados": null,
+    "errores_no_encontrados": null,
+    "errores_mal_catalogados": null,
+    "errores_inventados": null,
+    "tiempo_respuesta": 4.43
+  },
+  "errores_esperados_total": 3,
+  "errores_detectados_por_modelo": []
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+NOTA: Complete todos los campos null con valores numéricos apropiados

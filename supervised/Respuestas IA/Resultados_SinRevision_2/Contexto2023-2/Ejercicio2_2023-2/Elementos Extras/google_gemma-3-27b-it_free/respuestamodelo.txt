@@ -1,0 +1,29 @@
+--- Modelo: google/gemma-3-27b-it:free
+--- Tiempo: 3.03s
+--- Largo: 169 caracteres
+--- Tokens entrada: 4124
+--- Tokens salida: 70
+--- Éxito: True
+--- Respuesta del Modelo:
+What is wrong
+FROM a.nombre
+FROM a.nombre
+FROM a.nombre
+
+FROM a.nombre
+FROM a.nombre
+FROM a.
+
+FROM a.
+FROM a.
+FROM a.
+
+FROM a.
+FROM a.
+
+FROM a.
+FROM a.
+
+FROM a.
+
+FROM a.

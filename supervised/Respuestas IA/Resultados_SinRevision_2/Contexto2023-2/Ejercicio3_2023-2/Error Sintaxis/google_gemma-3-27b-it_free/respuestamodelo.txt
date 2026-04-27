@@ -1,0 +1,19 @@
+--- Modelo: google/gemma-3-27b-it:free
+--- Tiempo: 5.25s
+--- Largo: 842 caracteres
+--- Tokens entrada: 3882
+--- Tokens salida: 232
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Sintaxis: Error de tipeo en DISTINCT.
+   - ¿Por qué es un error? La palabra clave correcta es `DISTINCT` y no `DISTING`. Esto causa que la consulta no se pueda ejecutar.
+
+2. Sintaxis: Error de tipeo en la tabla "tecis".
+   - ¿Por qué es un error? La tabla se llama "tesis" y no "tecis", lo cual impide que la consulta pueda encontrar la tabla y arroja un error.
+
+3. Sintaxis: Uso incorrecto de INNER JOIN.
+   - ¿Por qué es un error?  La sintaxis correcta es `INNER JOIN` (con un espacio entre las palabras).
+
+4. Lógico: Falta la condición para filtrar por año de ingreso en la tabla correcta.
+   - ¿Por qué es un error? La condición `WHERE anio_ingreso = 2019` se aplica directamente sin especificar la tabla a la que pertenece esa columna (estudiante). Esto aunque no genere error de sintaxis si no es la intención.

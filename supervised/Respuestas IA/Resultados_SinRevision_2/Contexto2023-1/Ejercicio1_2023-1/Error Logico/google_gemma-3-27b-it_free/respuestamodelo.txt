@@ -1,0 +1,13 @@
+--- Modelo: google/gemma-3-27b-it:free
+--- Tiempo: 6.48s
+--- Largo: 875 caracteres
+--- Tokens entrada: 4145
+--- Tokens salida: 201
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. **Error Lógico**: La cláusula WHERE es usada incorrectamente.
+   ¿Por qué es un error? La cláusula WHERE permite filtrar los resultados de la consulta. El código del estudiante intenta usar `SUM(cantidad)` en la cláusula WHERE, lo cual no es una comparación válida, ya que `SUM(cantidad)` devuelve un valor agregado, no una condición booleana. Se debe usar la cláusula HAVING para filtrar grupos de resultados basados en una agregación.
+
+2. **Error Conceptual**: Falta la cláusula HAVING.
+   ¿Por qué es un error? El enunciado pide "incluyendo solo autores con más de 5 ventas totales". Para filtrar resultados basados en un valor de agregación (como `SUM(cantidad)`), se necesita la cláusula HAVING. La cláusula WHERE filtra filas individuales antes de la agregación, mientras que la cláusula HAVING filtra grupos de filas después de la agregación.

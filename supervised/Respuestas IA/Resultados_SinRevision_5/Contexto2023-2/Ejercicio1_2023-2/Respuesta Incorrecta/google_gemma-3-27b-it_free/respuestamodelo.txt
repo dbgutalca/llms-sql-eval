@@ -1,0 +1,13 @@
+--- Modelo: google/gemma-3-27b-it:free
+--- Tiempo: 5.20s
+--- Largo: 691 caracteres
+--- Tokens entrada: 4009
+--- Tokens salida: 171
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Agrupación incorrecta.
+   - ¿Por qué es un error? Se está agrupando por `academico.nombre` y `tesis.ref_estudiante`. Agrupar por `tesis.ref_estudiante` hace que la cuenta sea por cada estudiante, en lugar de contar la cantidad de tesis tutoradas por cada académico.
+
+2. Lógico: Resultado incorrecto.
+   - ¿Por qué es un error? Debido a la agrupación incorrecta, la consulta cuenta cada tutoría individualmente, generando duplicados y un conteo inexacto de estudiantes tutorados por cada académico. El resultado esperado es el número total de estudiantes tutorados por cada académico, no la cantidad de veces que un académico es tutor de un mismo estudiante.

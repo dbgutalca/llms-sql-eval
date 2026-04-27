@@ -1,0 +1,10 @@
+- Respuesta estudiante -
+
+SELECT academico.nombre
+FROM tesis INNER JOIN academico ON academico.id = ref_tutor 
+INNER JOIN estudiante ON estudiante.id = ref_estudiante
+WHERE anio_ingreso = 2018;
+
+
+- Tabla resultante de estudiante -
+

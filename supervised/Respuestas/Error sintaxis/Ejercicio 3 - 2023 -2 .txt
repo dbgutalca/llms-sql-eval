@@ -1,0 +1,9 @@
+- Respuesta estudiante -
+
+SELECT DISTING academico.nombre
+FROM tecis INNER JON academico ON academico.id = ref_tutor 
+INNER JOIN estudiante ON estudiante.id = ref_estudiante
+WHERE anio_ingreso = 2019;
+
+
+- Tabla resultante de estudiante -

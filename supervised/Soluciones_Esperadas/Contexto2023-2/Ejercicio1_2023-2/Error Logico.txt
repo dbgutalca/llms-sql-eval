@@ -1,0 +1,6 @@
+Solución esperada para ejercicio (2023-2) ejercicio 1 para errores lógicos: Detectar problemas en la lógica de negocio, condiciones mal planteadas o interpretación incorrecta del problema.
+
+Errores esperados
+
+1. Error lógico, Falta agrupar por academicos (Count y group by)
+3. Error lógico, Apunta a tabla incorrecta (estudiante)

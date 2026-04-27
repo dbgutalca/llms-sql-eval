@@ -1,0 +1,13 @@
+--- Modelo: qwen/qwen3-14b:free
+--- Tiempo: 17.23s
+--- Largo: 633 caracteres
+--- Tokens entrada: 4182
+--- Tokens salida: 1003
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Uso incorrecto de COUNT sin DISTINCT.
+   - ¿Por qué es un error? La consulta debe contar destinos **distintos** por cliente, pero al usar `COUNT(viaje.destino)` se incluyen duplicados. Por ejemplo, un cliente que viajó a "Talca" en múltiples viajes contará ese destino tantas veces como viajes, en lugar de una sola vez.
+
+2. Lógico: Grupo inadecuado en la cláusula GROUP BY.
+   - ¿Por qué es un error? Se agrupa solo por `cliente.nombre`, pero podría haber clientes con nombres repetidos. Para garantizar agrupación por cliente único, se debe usar `GROUP BY cliente.id`, ya que es la clave primaria.

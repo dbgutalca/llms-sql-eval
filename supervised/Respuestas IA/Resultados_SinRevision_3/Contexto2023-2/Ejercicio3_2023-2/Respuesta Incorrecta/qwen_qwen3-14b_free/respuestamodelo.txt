@@ -1,0 +1,13 @@
+--- Modelo: qwen/qwen3-14b:free
+--- Tiempo: 16.92s
+--- Largo: 650 caracteres
+--- Tokens entrada: 3888
+--- Tokens salida: 1008
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Error conceptual: No se usó DISTINCT para evitar duplicados.
+   - ¿Por qué es un error? La consulta debe retornar nombres únicos de académicos, pero al omitir DISTINCT, se generan filas repetidas cuando un académico es tutor de múltiples tesis de estudiantes del 2019.
+
+2. Error conceptual: La consulta no incluye la cláusula DISTINCT.
+   - ¿Por qué es un error? Aunque las joins son correctas, el resultado final contiene duplicados (ej: "Academico uno" aparece dos veces) porque no se aplicó una operación de exclusión de registros repetidos. El uso de DISTINCT es clave para satisfacer el requisito de no repetir nombres.

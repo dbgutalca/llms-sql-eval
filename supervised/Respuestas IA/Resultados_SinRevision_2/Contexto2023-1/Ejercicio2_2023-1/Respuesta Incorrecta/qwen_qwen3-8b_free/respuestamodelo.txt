@@ -1,0 +1,13 @@
+--- Modelo: qwen/qwen3-8b:free
+--- Tiempo: 26.83s
+--- Largo: 844 caracteres
+--- Tokens entrada: 4182
+--- Tokens salida: 1889
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Uso de COUNT sin DISTINCT. 
+   - ¿Por qué es un error? La consulta cuenta todas las entradas de `destino` de cada cliente, incluyendo duplicados. El enunciado requiere el número de **destinos distintos**, por lo que se debe usar `COUNT(DISTINCT viaje.destino)` para evitar que un mismo destino se cuente múltiples veces por cliente.
+
+2. Conceptual: Uso innecesario de GROUP BY con solo `cliente.nombre`. 
+   - ¿Por qué es un error? Aunque en los datos de ejemplo los nombres son únicos, el estándar SQL requiere agrupar por las columnas no agregadas en la consulta. Dado que el cliente está identificado por `cliente.id`, agrupar solo por `nombre` podría causar inconsistencias si hubiera duplicados en nombres. La solución correcta sería agrupar por `cliente.id` y `cliente.nombre` para asegurar la precisión.

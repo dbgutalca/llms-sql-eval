@@ -1,0 +1,4 @@
+Solución esperada para ejercicio (2023-2) ejercicio 2 para respuestas incorrectas: Detectar si el modelo encuentra la respuesta del estudiante incorrecta
+
+Errores esperados
+1. La respuesta del estudiante es incorrecta.

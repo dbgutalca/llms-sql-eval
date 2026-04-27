@@ -1,0 +1,5 @@
+Solución esperada para ejercicio (2023-1) ejercicio 2 para Errores conseptuales: Detectar problemas en una respuesta la cual puede ser correcta, pero añade elementos no solicitados en el problema.
+
+Errores esperados
+1. Error conceptual, Order By sin sentido
+2. Error conceptual, Where sin sentido

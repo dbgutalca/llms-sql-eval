@@ -1,0 +1,14 @@
+- Respuesta estudiante -
+
+SELECT academico.nombre AS rev_nombre
+FROM academico
+JOIN revisor ON revisor.ref_academico = academico.id
+GROUP BY academico.id, academico.nombre
+ORDER BY COUNT(revisor.ref_tesis) DESC
+LIMIT 1;
+
+- Tabla resultante de estudiante -
+
+|rev_nombre      |
+|----------------|
+|Academico cuatro|

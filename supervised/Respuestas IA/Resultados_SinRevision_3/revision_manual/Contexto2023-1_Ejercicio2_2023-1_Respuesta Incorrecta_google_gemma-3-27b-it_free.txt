@@ -1,0 +1,101 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-1_Ejercicio2_2023-1_Respuesta Incorrecta_google_gemma-3-27b-it_free
+CONTEXTO: Contexto2023-1
+EJERCICIO: Ejercicio2_2023-1
+TIPO DE EVALUACIÓN: Respuesta Incorrecta
+MODELO EVALUADO: google/gemma-3-27b-it:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-09-30 17:03:42
+TIEMPO RESPUESTA: 12.12 segundos
+TOKENS ENTRADA: 4278
+TOKENS SALIDA: 270
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-1) ejercicio 2 para respuestas incorrectas: Detectar si el modelo encuentra la respuesta del estudiante incorrecta
+
+Errores esperados
+1. La respuesta del estudiante es incorrecta.
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+select cliente.nombre, count(viaje.destino) 
+from cliente, viaje, ticket
+where 
+ticket.refviaje = viaje.id and
+ticket.refcliente = cliente.id
+group by cliente.nombre;
+
+- Tabla resultante de estudiante -
+
+|nombre  |count|
+|--------|-----|
+|William |2    |
+|Oscar   |4    |
+|Alex    |6    |
+|Gerardo |2    |
+|Ivan    |4    |
+|Juan    |6    |
+|Aldo    |3    |
+|Welton  |3    |
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+Errores identificados:
+1. Error Lógico: La consulta usa `count(destino)` en lugar de `count(distinct destino)`.
+   ¿Por qué es un error? El requerimiento pide el número de destinos *distintos* que ha viajado cada cliente. Usar `count(destino)` cuenta todos los viajes a cada destino, incluso si son repetidos, lo cual es incorrecto.
+
+2. Error Lógico: La consulta no incluye el agrupamiento por el identificador del cliente (id), solo por su nombre.
+   ¿Por qué es un error? Si hay clientes con el mismo nombre (aunque en este ejemplo no los hay), se agruparían erróneamente en una sola fila, produciendo un conteo incorrecto de destinos para cada cliente individual. El agrupamiento por id es esencial para garantizar la precisión de los resultados.
+
+3. Error Conceptual: La forma de relacionar las tablas es innecesaria. Se usan joins implicitos, que son menos claros y pueden ser propensos a errores.
+   ¿Por qué es un error? Si bien esto no causa que la respuesta sea incorrecta, hace que la consulta sea menos legible y más difícil de mantener. Es preferible usar joins explicitos para indicar claramente las relaciones entre las tablas.
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que evaluar si el modelo puede determinar si una respuesta es correcta o incorrecta si es el caso de respuesta correcta e identifica como correcta, el modelo si pudo identificar entonces es True, en el caso de incorrecta lo mismo.
+
+```json
+{
+  "id_evaluacion": "Contexto2023-1_Ejercicio2_2023-1_Respuesta Incorrecta_google_gemma-3-27b-it_free",
+  "contexto": "Contexto2023-1",
+  "ejercicio": "Ejercicio2_2023-1",
+  "tipo_evaluacion": "Respuesta Incorrecta",
+  "modelo_evaluado": "google/gemma-3-27b-it:free",
+  "evaluacion": {
+    "detecto_correctamente": null,
+    "tiempo_respuesta": 12.12
+  }
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+detecto_correctamente: true si el modelo dijo que la respuesta es correcta/incorrecta y coincide con lo esperado
+NOTA: Complete todos los campos null con valores apropiados (true/false o números)

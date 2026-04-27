@@ -1,0 +1,16 @@
+--- Modelo: google/gemma-3-27b-it:free
+--- Tiempo: 5.76s
+--- Largo: 886 caracteres
+--- Tokens entrada: 3952
+--- Tokens salida: 0
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Falta la función de agregación COUNT y el agrupamiento GROUP BY.
+   - ¿Por qué es un error? El enunciado solicita el *número* de estudiantes por académico, lo que requiere contar las tesis tutoradas por cada uno. La consulta actual solo lista los nombres de los académicos que han sido tutores, sin contar cuántos estudiantes han tutorado.
+
+2. Lógico: Join incorrecto.
+   - ¿Por qué es un error? El join se realiza entre academico y tesis usando tesis.ref_estudiante = academico.id, lo cual es incorrecto. La relación correcta para contar las tesis tutoradas por cada académico es tesis.ref_tutor = academico.id.
+
+3. Lógico: Falta el atributo "nro_estudiantes" en la selección.
+   - ¿Por qué es un error? El enunciado solicita una tabla con los atributos "nombre_academico" y "nro_estudiantes", pero la consulta solo selecciona el nombre del académico.

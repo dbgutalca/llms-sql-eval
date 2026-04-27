@@ -1,0 +1,21 @@
+- Enunciado -
+
+Retornar una tabla con los nombres de las ciudades que han sido el destino de los viajes del cliente “Juan”. No repetir los nombres de ciudad.
+
+- Respuesta correcta -
+
+select distinct viaje.destino 
+from cliente, viaje, ticket
+where 
+ticket.refviaje = viaje.id and
+ticket.refcliente = cliente.id and
+cliente.nombre = 'Juan'
+
+- Tabla respuesta -
+
+| destino |
+| ------- |
+| Curicó  |
+| Linares |
+| Talca   |
+

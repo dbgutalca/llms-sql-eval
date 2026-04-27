@@ -1,0 +1,13 @@
+--- Modelo: qwen/qwen3-14b:free
+--- Tiempo: 18.58s
+--- Largo: 638 caracteres
+--- Tokens entrada: 4182
+--- Tokens salida: 1077
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Falta uso de DISTINCT en COUNT.
+   - ¿Por qué es un error? La consulta debe contar **destinos distintos**, pero `COUNT(viaje.destino)` cuenta todas las apariciones, incluyendo duplicados. Esto genera valores incorrectos, como Oscar con 4 destinos en lugar de 2.
+
+2. Conceptual: Uso inadecuado de `GROUP BY`.
+   - ¿Por qué es un error? Aunque el resultado no muestra errores en este caso, agrupar solo por `cliente.nombre` no es óptimo si no se garantiza que los nombres sean únicos. La solución correcta agrupa por `cliente.id` (clave primaria) para evitar ambigüedades, incluso si los nombres coinciden.

@@ -1,0 +1,10 @@
+--- Modelo: deepseek/deepseek-r1-0528-qwen3-8b:free
+--- Tiempo: 4.20s
+--- Largo: 285 caracteres
+--- Tokens entrada: 4073
+--- Tokens salida: 878
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Falta aplicación de DISTINCT para evitar duplicados.
+   - ¿Por qué es un error? La consulta devuelve ciudades repetidas porque un mismo viaje se repite las veces que el cliente compró tickets para él. El enunciado pide no repetir nombres de la ciudad.

@@ -1,0 +1,10 @@
+--- Modelo: deepseek/deepseek-r1-0528-qwen3-8b:free
+--- Tiempo: 46.04s
+--- Largo: 386 caracteres
+--- Tokens entrada: 3884
+--- Tokens salida: 3178
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Falta usar DISTINCT para evitar duplicados.
+   - ¿Por qué es un error? La solicitud especifica "No repetir los nombres de los académicos", pero la consulta devuelve múltiples filas con el mismo nombre debido a que varios académicos supervisoran múltiples tesis. Usar DISTINCT corrige este problema al garantizar que cada nombre se muestre solo una vez.

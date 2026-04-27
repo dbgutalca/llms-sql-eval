@@ -1,0 +1,13 @@
+--- Modelo: qwen/qwen3-14b:free
+--- Tiempo: 9.77s
+--- Largo: 470 caracteres
+--- Tokens entrada: 3819
+--- Tokens salida: 737
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Condición de año incorrecta en WHERE.
+   - ¿Por qué es un error? La consulta filtra por `anio_ingreso = 2018` en lugar de `2019`, que es el año solicitado en el enunciado.
+
+2. Lógico: Falta de `DISTINCT` para evitar nombres repetidos.
+   - ¿Por qué es un error? Al no usar `DISTINCT`, se podrían mostrar múltiples filas con el mismo nombre de académico si tienen más de una tesis asociada, violando el requisito de "no repetir nombres".

@@ -1,0 +1,3 @@
+- Problema -
+
+Retornar una tabla con los atributos "nombre_academico" y "nro_estudiantes", la cual muestra, para cada académico, el número de estudiantes de los cuales ha sido tutor. La consulta debe diferenciar a los académicos con el mismo nombre.

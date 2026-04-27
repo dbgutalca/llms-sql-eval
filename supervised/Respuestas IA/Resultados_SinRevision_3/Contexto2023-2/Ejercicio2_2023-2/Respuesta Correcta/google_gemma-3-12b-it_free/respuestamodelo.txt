@@ -1,0 +1,11 @@
+--- Modelo: google/gemma-3-12b-it:free
+--- Tiempo: 3.32s
+--- Largo: 130 caracteres
+--- Tokens entrada: 4075
+--- Tokens salida: 41
+--- Éxito: True
+--- Respuesta del Modelo:
+Ó
+Error:
+    [1. Tipo de error: Error de sintaxis
+      ¿Por qué es un error? El enunciado 'FROM' debería estar antes de 'WHERE'.]

@@ -1,0 +1,6 @@
+Solución esperada para ejercicio (2023-2) ejercicio 2 para errores sintaxis: Detectar problemas en la redaccion de la solucion, las cuales generan errores de ejecucion del ejercicio.
+
+Errores esperados
+1. Error Sintaxis, Tabla from "academicos" en vez de "academico" mal escrita
+2. Error Sintaxis, Falta coma en group by
+3. Error Sintaxis, doble igual en sub-consulta

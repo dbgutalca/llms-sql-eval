@@ -1,0 +1,8 @@
+--- Modelo: google/gemma-3-12b-it:free
+--- Tiempo: 7.44s
+--- Largo: 1 caracteres
+--- Tokens entrada: 4047
+--- Tokens salida: 2
+--- Éxito: True
+--- Respuesta del Modelo:
+=

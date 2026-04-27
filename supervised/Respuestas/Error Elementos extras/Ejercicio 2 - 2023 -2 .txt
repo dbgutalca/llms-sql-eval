@@ -1,0 +1,28 @@
+- Respuesta estudiante -
+
+SELECT academico.nombre AS nombre_academico
+FROM (
+    SELECT academico.id, academico.nombre
+    FROM academico
+) AS academico
+INNER JOIN (
+    SELECT revisor.ref_academico, revisor.ref_tesis
+    FROM revisor
+) AS revisor ON revisor.ref_academico = academico.id
+GROUP BY academico.id, academico.nombre
+HAVING COUNT(revisor.ref_tesis) = (
+    SELECT MAX(contador)
+    FROM (
+        SELECT COUNT(revisor.ref_tesis) AS contador
+        FROM academico
+        INNER JOIN revisor ON revisor.ref_academico = academico.id
+        GROUP BY academico.id
+    ) AS subquery
+);
+
+- Tabla resultante de estudiante -
+
+|nombre_academico|
+|----------------|
+|Academico cuatro|
+|Academico cinco |

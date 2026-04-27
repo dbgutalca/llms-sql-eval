@@ -1,0 +1,13 @@
+--- Modelo: qwen/qwen3-8b:free
+--- Tiempo: 38.92s
+--- Largo: 864 caracteres
+--- Tokens entrada: 3862
+--- Tokens salida: 2720
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Conceptual: Uso innecesario de DISTINCT.
+   - ¿Por qué es un error? La tabla academico tiene un campo autor_id como clave primaria, por lo que cada nombre de académico aparecerá una vez por cada tesis a la que haya sido tutor. El uso de DISTINCT es innecesario ya que no se especifica que un académico puede ser tutor de múltiples tesis de estudiantes de 2019. La consulta devuelve los nombres correctos pero sin justificación para eliminar duplicados.
+
+2. Sintaxis: Falta especificar el campo en el WHERE.
+   - ¿Por qué es un error? La cláusula WHERE debe referirse explícitamente al campo anio_ingreso de la tabla estudiante, ya que este podría existir en múltiples tablas si la base de datos tuviera columnas con el mismo nombre. Aunque en este caso no es ambiguo, el estándar SQL recomienda usar tabla.columna para evitar confusiones.

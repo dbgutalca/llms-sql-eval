@@ -1,0 +1,16 @@
+--- Modelo: qwen/qwen3-14b:free
+--- Tiempo: 27.56s
+--- Largo: 599 caracteres
+--- Tokens entrada: 3822
+--- Tokens salida: 2657
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Sintaxis: Uso incorrecto de "DISTING" en lugar de "DISTINCT".
+   - ¿Por qué es un error? "DISTING" no es una palabra clave válida en SQL; la correcta es "DISTINCT" para eliminar duplicados.
+
+2. Sintaxis: "INNER JON" en lugar de "INNER JOIN".
+   - ¿Por qué es un error? "JON" es una escritura errónea de "JOIN", lo que hace que la consulta no sea válida sintácticamente.
+
+3. Sintaxis: "tecis" en lugar de "tesis".
+   - ¿Por qué es un error? La tabla se llama "tesis", pero el estudiante escribió "tecis", lo que provoca un error al no reconocer la tabla en la base de datos.

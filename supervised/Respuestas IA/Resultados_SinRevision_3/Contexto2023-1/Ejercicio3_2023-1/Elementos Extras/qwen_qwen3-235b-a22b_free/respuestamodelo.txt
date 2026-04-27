@@ -1,0 +1,13 @@
+--- Modelo: qwen/qwen3-235b-a22b:free
+--- Tiempo: 64.26s
+--- Largo: 520 caracteres
+--- Tokens entrada: 5188
+--- Tokens salida: 2422
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Conceptual: Uso innecesario de ORDER BY.
+   ¿Por qué es un error? El enunciado no solicita ordenar los resultados, por lo que incluir ORDER BY cliente.nombre DESC agrega complejidad innecesaria a la consulta sin aportar valor requerido.
+
+2. Conceptual: Uso innecesario de LIMIT.
+   ¿Por qué es un error? La cláusula LIMIT 100000 no es necesaria ya que el problema no especifica límite en la cantidad de registros a retornar, y el valor 100000 excede claramente el número real de filas posibles.

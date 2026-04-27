@@ -1,0 +1,17 @@
+- Respuesta estudiante -
+
+SELECT cliente.nombre
+FROM cliente
+INNER JOIN ticket ON ticket.refcliente == cliente.id
+GROUP BY cliente.id, cliente.nombre;
+WHERE COUNT(ticket.id) == (
+    SELECT MAX(nro_tickets)
+    FROM (
+        SELECT COUNT(ticket.id) AS nro_tickets
+        FROM cliente
+        INNER JOIN ticket ON ticket.refcliente = cliente.id
+        GROUP BY cliente.id
+    ) AS t
+)
+
+- Tabla resultante de estudiante -

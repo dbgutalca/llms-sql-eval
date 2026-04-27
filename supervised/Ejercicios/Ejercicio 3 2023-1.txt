@@ -1,0 +1,25 @@
+- Enunciado -
+
+Retornar una tabla con los nombres de los clientes que han comprado la mayor cantidad de tickets.
+
+- Respuesta correcta - 
+
+select t3.nombre
+from ( select max(nro_tickets) as max_tickets
+       from ( select cliente.id, count(ticket.id) as nro_tickets 
+              from cliente, ticket
+              where ticket.refcliente = cliente.id 
+              group by cliente.id) as t1) as t2,
+     ( select cliente.id, cliente.nombre, count(ticket.id) as nro_tickets 
+       from cliente, ticket
+       where ticket.refcliente = cliente.id
+       group by cliente.id, cliente.nombre) as t3
+where t3.nro_tickets = t2.max_tickets
+
+- Tabla esperada -
+
+|nombre|
+|------|
+|Alex  |
+|Juan  |
+

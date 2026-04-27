@@ -1,0 +1,13 @@
+--- Modelo: qwen/qwen3-14b:free
+--- Tiempo: 21.24s
+--- Largo: 577 caracteres
+--- Tokens entrada: 4182
+--- Tokens salida: 794
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: No uso de DISTINCT en count.
+   - ¿Por qué es un error? La consulta debe contar destinos **distintos**, pero el estudiante usó `count(viaje.destino)` sin `DISTINCT`, lo que incluye repeticiones de destinos (ejemplo: Juan tiene 6 en lugar de 3).
+
+2. Conceptual: Falta agrupar por `cliente.id` en GROUP BY.
+   - ¿Por qué es un error? El enunciado pide agrupar por cliente, y aunque `nombre` es único en este caso, se debe usar el identificador primario (`cliente.id`) para agrupar, ya que es la columna que garantiza la unicidad absoluta en SQL.

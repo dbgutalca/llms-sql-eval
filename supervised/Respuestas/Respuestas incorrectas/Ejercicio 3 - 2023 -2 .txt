@@ -1,0 +1,20 @@
+- Respuesta estudiante -
+
+SELECT academico.nombre
+FROM tesis INNER JOIN academico ON academico.id = ref_tutor 
+INNER JOIN estudiante ON estudiante.id = ref_estudiante
+WHERE anio_ingreso = 2019;
+
+- Tabla resultante de estudiante -
+
+|nombre           |
+|-----------------|
+|Academico uno    |
+|Academico dos    |
+|Academico tres   |
+|Academico cuatro |
+|Academico cinco  |
+|Academico uno    |
+|Academico dos    |
+|Academico tres   |
+|Academico cuatro |

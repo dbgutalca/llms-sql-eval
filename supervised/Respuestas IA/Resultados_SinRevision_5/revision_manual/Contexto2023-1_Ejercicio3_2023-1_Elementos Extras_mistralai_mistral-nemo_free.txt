@@ -1,0 +1,118 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-1_Ejercicio3_2023-1_Elementos Extras_mistralai_mistral-nemo_free
+CONTEXTO: Contexto2023-1
+EJERCICIO: Ejercicio3_2023-1
+TIPO DE EVALUACIÓN: Elementos Extras
+MODELO EVALUADO: mistralai/mistral-nemo:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-10-02 19:13:56
+TIEMPO RESPUESTA: 8.64 segundos
+TOKENS ENTRADA: 4155
+TOKENS SALIDA: 345
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-1) ejercicio 3 para Errores conseptuales: Detectar problemas en una respuesta la cual puede ser correcta, pero añade elementos no solicitados en el problema.
+
+Errores esperados
+1. Error Error conseptual, Order by innecesario
+2. Error Error conseptual, Limit sin sentido
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+SELECT cliente.nombre
+FROM cliente
+INNER JOIN ticket ON ticket.refcliente = cliente.id
+GROUP BY cliente.id, cliente.nombre
+HAVING COUNT(ticket.id) = (
+    SELECT MAX(nro_tickets)
+    FROM (
+        SELECT COUNT(ticket.id) AS nro_tickets
+        FROM cliente
+        INNER JOIN ticket ON ticket.refcliente = cliente.id
+        GROUP BY cliente.id
+    ) AS t
+)
+ORDER BY cliente.nombre DESC
+LIMIT 100000;
+
+- Tabla resultante de estudiante -
+
+|nombre|
+|------|
+|Alex  |
+|Juan  |
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+Errores identificados:
+
+1. Lógico: La consulta del estudiante no considera la cantidad total de tickets vendidos para determinar el/los cliente(s) con la mayor cantidad de tickets comprados.
+   - ¿Por qué es un error? La consulta del estudiante agrupa por cliente y cuenta los tickets, pero no compara esta cantidad con el máximo de tickets comprados por cualquier cliente. En lugar de eso, simplemente ordena por nombre del cliente y limita los resultados a 100000, lo que no garantiza que se estén mostrando los clientes con la mayor cantidad de tickets.
+
+2. Lógico: La consulta del estudiante no considera que puede haber más de un cliente con la mayor cantidad de tickets comprados.
+   - ¿Por qué es un error? La consulta del estudiante solo devuelve un resultado con el LIMIT 100000, lo que significa que si hay más de un cliente con la misma cantidad máxima de tickets, solo se mostrará uno de ellos. La respuesta correcta, en cambio, muestra todos los clientes con la mayor cantidad de tickets.
+
+3. Lógico: La consulta del estudiante no considera la posibilidad de que no haya clientes que hayan comprado tickets.
+   - ¿Por qué es un error? Si no hay clientes que hayan comprado tickets, la consulta del estudiante aún devolverá una tabla vacía, mientras que la respuesta correcta no generaría ninguna tabla en ese caso.
+
+La respuesta del estudiante no es correcta porque no cumple con el objetivo de retornar los nombres de los clientes que han comprado la mayor cantidad de tickets. La respuesta correcta es la que se debe utilizar para obtener los resultados esperados.
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que revisar si el modelo identificó correctamente los errores esperados.
+
+Para cada error:
+- Si lo identificó y categorizó bien → cuenta como "correctamente identificado"
+- Si lo identificó pero mal catalogado → "mal catalogado"
+- Si no lo detectó → "no encontrado"
+- Si mencionó un error que no existe y no esta relacionado a un error mencionado → "inventado"
+
+```json
+{
+  "id_evaluacion": "Contexto2023-1_Ejercicio3_2023-1_Elementos Extras_mistralai_mistral-nemo_free",
+  "contexto": "Contexto2023-1",
+  "ejercicio": "Ejercicio3_2023-1",
+  "tipo_evaluacion": "Elementos Extras",
+  "modelo_evaluado": "mistralai/mistral-nemo:free",
+  "evaluacion": {
+    "errores_correctamente_identificados": null,
+    "errores_no_encontrados": null,
+    "errores_mal_catalogados": null,
+    "errores_inventados": null,
+    "tiempo_respuesta": 8.64
+  },
+  "errores_esperados_total": 2,
+  "errores_detectados_por_modelo": []
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+NOTA: Complete todos los campos null con valores numéricos apropiados

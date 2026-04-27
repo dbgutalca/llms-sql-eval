@@ -1,0 +1,79 @@
+================================================================================
+REPORTE DETALLADO DE CASOS FALLIDOS
+================================================================================
+
+Fecha de generación: 2025-09-29 01:03:17
+Total de casos fallidos: 69
+Casos definitivamente fallidos: 1
+
+------------------------------------------------------------
+RESUMEN POR MODELO
+------------------------------------------------------------
+
+📱 MODELO: qwen/qwen3-coder:free
+   Fallos: 1
+   Errores más comunes:
+      • Intento 35: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions (1 veces)
+
+------------------------------------------------------------
+DETALLE COMPLETO DE CASOS FALLIDOS
+------------------------------------------------------------
+
+1. CASO FALLIDO #1
+   Contexto: Contexto2023-1
+   Ejercicio: Ejercicio2_2023-1
+   Tipo: Error Sintaxis
+   Modelo: qwen/qwen3-coder:free
+   Intentos realizados: 35
+   Último error: Intento 35: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+   Historial de errores:
+      1. API Error: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      2. Intento 2: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      3. Intento 3: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      4. Intento 4: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      5. Intento 5: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      6. Intento 6: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      7. Intento 7: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      8. Intento 8: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      9. Intento 9: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      10. Intento 10: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      11. Intento 11: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      12. Intento 12: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      13. Intento 13: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      14. Intento 14: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      15. Intento 15: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      16. Intento 16: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      17. Intento 17: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      18. Intento 18: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      19. Intento 19: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      20. Intento 20: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      21. Intento 21: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      22. Intento 22: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      23. Intento 23: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      24. Intento 24: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      25. Intento 25: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      26. Intento 26: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      27. Intento 27: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      28. Intento 28: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      29. Intento 29: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      30. Intento 30: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      31. Intento 31: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      32. Intento 32: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      33. Intento 33: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      34. Intento 34: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+      35. Intento 35: Error en la llamada a la API: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions
+   --------------------------------------------------
+
+================================================================================
+RECOMENDACIONES
+================================================================================
+1. Revisar la configuración de rate limits si hay muchos errores 429
+2. Verificar la conectividad de red si hay timeouts
+3. Considerar aumentar el tiempo de espera entre reintentos
+4. Revisar la API key si hay errores de autenticación
+5. Verificar el estado de los modelos en OpenRouter
+
+Para reintentar solo los casos fallidos, use:
+- Copie los casos fallidos de este reporte
+- Modifique el script para ejecutar solo esos casos específicos
+- Considere ejecutar con menos hilos concurrentes

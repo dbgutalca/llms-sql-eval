@@ -1,0 +1,104 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-1_Ejercicio1_2023-1_Elementos Extras_qwen_qwen3-30b-a3b_free
+CONTEXTO: Contexto2023-1
+EJERCICIO: Ejercicio1_2023-1
+TIPO DE EVALUACIÓN: Elementos Extras
+MODELO EVALUADO: qwen/qwen3-30b-a3b:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-10-02 19:13:46
+TIEMPO RESPUESTA: 10.53 segundos
+TOKENS ENTRADA: 4076
+TOKENS SALIDA: 531
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-1) ejercicio 1 para Errores conseptuales: Detectar problemas en una respuesta la cual puede ser correcta, pero añade elementos no solicitados en el problema.
+
+Errores esperados
+1. Error conseptual, Order by innecesario
+2. Error conseptual, Condiciones en WHERE adicionales no solicitadas
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+SELECT DISTINCT viaje.destino
+FROM cliente
+JOIN ticket ON ticket.refcliente = cliente.id
+JOIN viaje ON ticket.refviaje = viaje.id
+WHERE cliente.nombre = 'Juan' AND cliente.nombre != 'Pedro'
+ORDER BY viaje.destino;
+
+- Tabla resultante de estudiante -
+
+| destino |
+| ------- |
+| Curicó  |
+| Linares |
+| Talca   |
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+Errores identificados:
+1. Error conceptual: Uso innecesario de condición cliente.nombre != 'Pedro'.
+   - ¿Por qué es un error? La condición no está solicitada en el enunciado y excluye erroneamente resultados que podrían pertenecer a Juan.
+
+2. Error conceptual: Uso innecesario de ORDER BY.
+   - ¿Por qué es un error? El enunciado no pide ordenar los resultados, por lo que esta cláusula no aporta valor a la consulta.
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que revisar si el modelo identificó correctamente los errores esperados.
+
+Para cada error:
+- Si lo identificó y categorizó bien → cuenta como "correctamente identificado"
+- Si lo identificó pero mal catalogado → "mal catalogado"
+- Si no lo detectó → "no encontrado"
+- Si mencionó un error que no existe y no esta relacionado a un error mencionado → "inventado"
+
+```json
+{
+  "id_evaluacion": "Contexto2023-1_Ejercicio1_2023-1_Elementos Extras_qwen_qwen3-30b-a3b_free",
+  "contexto": "Contexto2023-1",
+  "ejercicio": "Ejercicio1_2023-1",
+  "tipo_evaluacion": "Elementos Extras",
+  "modelo_evaluado": "qwen/qwen3-30b-a3b:free",
+  "evaluacion": {
+    "errores_correctamente_identificados": null,
+    "errores_no_encontrados": null,
+    "errores_mal_catalogados": null,
+    "errores_inventados": null,
+    "tiempo_respuesta": 10.53
+  },
+  "errores_esperados_total": 2,
+  "errores_detectados_por_modelo": []
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+NOTA: Complete todos los campos null con valores numéricos apropiados

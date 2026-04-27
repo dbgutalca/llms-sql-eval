@@ -1,0 +1,10 @@
+--- Modelo: deepseek/deepseek-r1-0528-qwen3-8b:free
+--- Tiempo: 7.41s
+--- Largo: 287 caracteres
+--- Tokens entrada: 4056
+--- Tokens salida: 566
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Selección incorrecta del campo 'origen'.  
+   - ¿Por qué es un error? La consulta debe mostrar el destino de los viajes, no el origen. Seleccionar `viaje.origen` en lugar de `viaje.destino` devuelve datos incorrectos que no cumplen con el requerimiento.

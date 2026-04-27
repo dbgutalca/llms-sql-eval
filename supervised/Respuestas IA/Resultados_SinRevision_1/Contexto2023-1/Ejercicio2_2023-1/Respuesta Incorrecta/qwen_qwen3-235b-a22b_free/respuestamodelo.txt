@@ -1,0 +1,10 @@
+--- Modelo: qwen/qwen3-235b-a22b:free
+--- Tiempo: 236.31s
+--- Largo: 642 caracteres
+--- Tokens entrada: 4980
+--- Tokens salida: 6721
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Uso de COUNT(destino) sin DISTINCT para contar destinos por cliente.
+   ¿Por qué es un error? El enunciado requiere contar los destinos *distintos* a los que ha viajado cada cliente, pero COUNT(viaje.destino) cuenta cada ticket (registro en la tabla ventas) asociado al destino, sin eliminar duplicados. Por ejemplo, Juan viajó a Talca (viaje 1 y 5), Curicó (viaje 2, 6 y 10) y Linares (viaje 9), lo que da 3 destinos distintos, pero la consulta cuenta 6 tickets (viajes), mostrando 6 en lugar de 3. La solución correcta requiere COUNT(DISTINCT viaje.destino) para considerar cada destino únicamente una vez.

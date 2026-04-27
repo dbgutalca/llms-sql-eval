@@ -1,0 +1,8 @@
+- Respuesta estudiante -
+
+SELECT academico.nombre AS nombre_academico COUNT(tesis.ref_estudiante) AS nro_estudiantes
+FROM academic
+INNER JOIN tesis tesis.ref_tutor = academico.id
+GROUP BY academico.id, academico.nombre;
+
+- Tabla resultante de estudiante -

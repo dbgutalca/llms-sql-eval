@@ -1,0 +1,18 @@
+- Respuesta estudiante -
+
+SELECT viaje.destino
+FROM cliente
+JOIN ticket ON ticket.refcliente = cliente.id
+JOIN viaje ON ticket.refviaje = viaje.id
+WHERE cliente.nombre = 'Juan';
+
+- Tabla resultante de estudiante -
+
+| destino |
+|---------|
+| Talca   |
+| Curicó  |
+| Talca   |
+| Curicó  |
+| Linares |
+| Curicó  |

@@ -1,0 +1,5 @@
+Solución esperada para ejercicio (2023-1) ejercicio 3 para errores lógicos: Detectar problemas en la lógica de negocio, condiciones mal planteadas o interpretación incorrecta del problema.
+
+Errores esperados
+1. Error lógico, uso de <>, para buscar diferentes a el minimo de tiquets
+2. Error lógico, uso de min para buscar minimo en vez de maximo

@@ -1,0 +1,25 @@
+- Enunciado -
+
+Retornar una tabla con los atributos “nombre_cliente” y “nro_destinos”, la cual muestra, para cada cliente, el número de destinos (distintos) a los cuales ha viajado.
+
+- Respuesta correcta -
+
+select cliente.nombre, count(distinct viaje.destino) 
+from cliente, viaje, ticket
+where 
+ticket.refviaje = viaje.id and
+ticket.refcliente = cliente.id
+group by cliente.id, cliente.nombre
+
+- Tabla esperada -
+
+|nombre |count|
+|-------|-----|
+|Juan   |3    |
+|Ivan   |2    |
+|Alex   |3    | 
+|Oscar  |2    |
+|Gerardo|2    |
+|William|2    |
+|Welton |3    |
+|Aldo   |3    |

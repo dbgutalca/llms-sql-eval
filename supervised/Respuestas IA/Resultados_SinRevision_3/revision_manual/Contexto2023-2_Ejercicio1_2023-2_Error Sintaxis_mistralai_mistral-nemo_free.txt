@@ -1,0 +1,108 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-2_Ejercicio1_2023-2_Error Sintaxis_mistralai_mistral-nemo_free
+CONTEXTO: Contexto2023-2
+EJERCICIO: Ejercicio1_2023-2
+TIPO DE EVALUACIÓN: Error Sintaxis
+MODELO EVALUADO: mistralai/mistral-nemo:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-09-30 17:09:11
+TIEMPO RESPUESTA: 7.82 segundos
+TOKENS ENTRADA: 3766
+TOKENS SALIDA: 362
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-2) ejercicio 1 para errores sintaxis: Detectar problemas en la redaccion de la solucion, las cuales generan errores de ejecucion del ejercicio.
+
+Errores esperados
+1. Error Sintaxis, Falta coma el select
+2. Error Sintaxis, Academico mal escrito
+3. Error Sintaxis, Falta ON para JOIN
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+SELECT academico.nombre AS nombre_academico COUNT(tesis.ref_estudiante) AS nro_estudiantes
+FROM academic
+INNER JOIN tesis tesis.ref_tutor = academico.id
+GROUP BY academico.id, academico.nombre;
+
+- Tabla resultante de estudiante -
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+Errores identificados:
+1. Lógico: Falta el uso de la función COUNT() en la consulta.
+   - ¿Por qué es un error? La respuesta estudiante no utiliza la función COUNT() para contar el número de estudiantes de los cuales ha sido tutor cada académico, lo que impide obtener el resultado esperado.
+
+2. Sintaxis: Falta el uso de la cláusula WHERE en la consulta.
+   - ¿Por qué es un error? La respuesta estudiante no utiliza la cláusula WHERE para filtrar los registros y establecer la relación entre las tablas "academico" y "tesis", lo que impide obtener el resultado esperado.
+
+3. Lógico: Falta el uso de la cláusula GROUP BY en la consulta.
+   - ¿Por qué es un error? La respuesta estudiante no utiliza la cláusula GROUP BY para agrupar los resultados por el nombre del académico, lo que impide obtener el resultado esperado.
+
+4. Lógico: Falta el uso de la función DISTINCT en la consulta.
+   - ¿Por qué es un error? La respuesta estudiante no utiliza la función DISTINCT para diferenciar a los académicos con el mismo nombre, lo que impide obtener el resultado esperado.
+
+5. Lógico: Falta el uso de la cláusula HAVING en la consulta.
+   - ¿Por qué es un error? La respuesta estudiante no utiliza la cláusula HAVING para filtrar los resultados después de la agrupación, lo que impide obtener el resultado esperado.
+
+En resumen, la respuesta estudiante contiene varios errores lógicos y de sintaxis que impiden obtener el resultado esperado. Es necesario corregir estos errores para obtener la tabla esperada.
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que revisar si el modelo identificó correctamente los errores esperados.
+
+Para cada error:
+- Si lo identificó y categorizó bien → cuenta como "correctamente identificado"
+- Si lo identificó pero mal catalogado → "mal catalogado"
+- Si no lo detectó → "no encontrado"
+- Si mencionó un error que no existe y no esta relacionado a un error mencionado → "inventado"
+
+```json
+{
+  "id_evaluacion": "Contexto2023-2_Ejercicio1_2023-2_Error Sintaxis_mistralai_mistral-nemo_free",
+  "contexto": "Contexto2023-2",
+  "ejercicio": "Ejercicio1_2023-2",
+  "tipo_evaluacion": "Error Sintaxis",
+  "modelo_evaluado": "mistralai/mistral-nemo:free",
+  "evaluacion": {
+    "errores_correctamente_identificados": null,
+    "errores_no_encontrados": null,
+    "errores_mal_catalogados": null,
+    "errores_inventados": null,
+    "tiempo_respuesta": 7.82
+  },
+  "errores_esperados_total": 3,
+  "errores_detectados_por_modelo": []
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+NOTA: Complete todos los campos null con valores numéricos apropiados

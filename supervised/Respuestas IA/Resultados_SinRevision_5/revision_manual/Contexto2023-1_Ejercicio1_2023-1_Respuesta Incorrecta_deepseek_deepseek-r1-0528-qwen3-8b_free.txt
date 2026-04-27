@@ -1,0 +1,95 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-1_Ejercicio1_2023-1_Respuesta Incorrecta_deepseek_deepseek-r1-0528-qwen3-8b_free
+CONTEXTO: Contexto2023-1
+EJERCICIO: Ejercicio1_2023-1
+TIPO DE EVALUACIÓN: Respuesta Incorrecta
+MODELO EVALUADO: deepseek/deepseek-r1-0528-qwen3-8b:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-10-02 19:10:30
+TIEMPO RESPUESTA: 17.78 segundos
+TOKENS ENTRADA: 4073
+TOKENS SALIDA: 1509
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-1) ejercicio 1 para respuestas incorrectas: Detectar si el modelo encuentra la respuesta del estudiante incorrecta
+
+Errores esperados
+1. La respuesta del estudiante es incorrecta.
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+SELECT viaje.destino
+FROM cliente
+JOIN ticket ON ticket.refcliente = cliente.id
+JOIN viaje ON ticket.refviaje = viaje.id
+WHERE cliente.nombre = 'Juan';
+
+- Tabla resultante de estudiante -
+
+| destino |
+|---------|
+| Talca   |
+| Curicó  |
+| Talca   |
+| Curicó  |
+| Linares |
+| Curicó  |
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+Errores identificados:
+1. Lógico: Uso incorrecto de JOIN sin DISTINCT.  
+   - ¿Por qué es un error? La consulta incluye múltiples registros para la misma ciudad debido a que Juan realiza múltiples viajes, pero el enunciado solicita no repetir los nombres de ciudad.  
+
+2. Conceptual: Uso innecesario de la tabla ticket.  
+   - ¿Por qué es un error? La información de `viaje.destino` no se relaciona directamente con `cliente.nombre`, por lo que el enunciado los vincula mediante la tabla `ticket`. Una solución alternativa podría existir si la base de datos tuviera una relación directa, pero en este caso es técnicamente necesaria.
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que evaluar si el modelo puede determinar si una respuesta es correcta o incorrecta si es el caso de respuesta correcta e identifica como correcta, el modelo si pudo identificar entonces es True, en el caso de incorrecta lo mismo.
+
+```json
+{
+  "id_evaluacion": "Contexto2023-1_Ejercicio1_2023-1_Respuesta Incorrecta_deepseek_deepseek-r1-0528-qwen3-8b_free",
+  "contexto": "Contexto2023-1",
+  "ejercicio": "Ejercicio1_2023-1",
+  "tipo_evaluacion": "Respuesta Incorrecta",
+  "modelo_evaluado": "deepseek/deepseek-r1-0528-qwen3-8b:free",
+  "evaluacion": {
+    "detecto_correctamente": null,
+    "tiempo_respuesta": 17.78
+  }
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+detecto_correctamente: true si el modelo dijo que la respuesta es correcta/incorrecta y coincide con lo esperado
+NOTA: Complete todos los campos null con valores apropiados (true/false o números)

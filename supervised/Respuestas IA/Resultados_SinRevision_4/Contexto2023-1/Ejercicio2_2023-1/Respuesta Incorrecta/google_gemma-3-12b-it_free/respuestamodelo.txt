@@ -1,0 +1,12 @@
+--- Modelo: google/gemma-3-12b-it:free
+--- Tiempo: 4.57s
+--- Largo: 337 caracteres
+--- Tokens entrada: 4278
+--- Tokens salida: 80
+--- Éxito: True
+--- Respuesta del Modelo:
+constitucional de este país," explicó.
+
+El proyecto autoriza un "préstamo con garantía hipotecaria" a la empresa Desarrollos Hometex S.A. para financiar la construcción de 335 unidades habitacionales, inicialmente destinadas a funcionarios policiales.
+
+La ley fue aprobada en el Senado con una mayoría de votos de la bancada oficialista.

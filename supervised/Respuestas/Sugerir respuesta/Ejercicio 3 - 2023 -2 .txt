@@ -1,0 +1,3 @@
+- Problema -
+
+Retornar una tabla con los nombres de los académicos que han sido tutores de tesis de estudiantes que ingresaron en el año 2019. No repetir los nombres de los académicos.

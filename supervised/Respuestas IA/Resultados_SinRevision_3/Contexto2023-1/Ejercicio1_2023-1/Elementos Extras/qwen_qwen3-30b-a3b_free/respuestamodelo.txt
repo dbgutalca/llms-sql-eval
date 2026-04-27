@@ -1,0 +1,13 @@
+--- Modelo: qwen/qwen3-30b-a3b:free
+--- Tiempo: 9.88s
+--- Largo: 492 caracteres
+--- Tokens entrada: 4076
+--- Tokens salida: 470
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Error conceptual: Uso innecesario de condición "cliente.nombre != 'Pedro'" en WHERE.
+   - ¿Por qué es un error? La condición es redundante ya que el filtro already establece que cliente.nombre = 'Juan', por lo que no es posible que sea 'Pedro' al mismo tiempo.
+
+2. Error conceptual: Uso innecesario de ORDER BY.
+   - ¿Por qué es un error? El enunciado no solicita ordenar los resultados, por lo que esta cláusula no aporta valor y complica la consulta sin necesidad.

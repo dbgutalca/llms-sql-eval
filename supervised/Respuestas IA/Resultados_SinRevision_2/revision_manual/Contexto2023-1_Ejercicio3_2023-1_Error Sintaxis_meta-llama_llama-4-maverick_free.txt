@@ -1,0 +1,111 @@
+================================================================================
+ARCHIVO PARA REVISIÓN MANUAL
+================================================================================
+
+ID ÚNICO: Contexto2023-1_Ejercicio3_2023-1_Error Sintaxis_meta-llama_llama-4-maverick_free
+CONTEXTO: Contexto2023-1
+EJERCICIO: Ejercicio3_2023-1
+TIPO DE EVALUACIÓN: Error Sintaxis
+MODELO EVALUADO: meta-llama/llama-4-maverick:free
+NÚMERO DE INTENTOS: 1
+FECHA/HORA: 2025-09-29 01:24:15
+TIEMPO RESPUESTA: 3.94 segundos
+TOKENS ENTRADA: 3772
+TOKENS SALIDA: 270
+ÉXITO: Sí
+
+------------------------------------------------------------
+SOLUCIÓN ESPERADA
+------------------------------------------------------------
+Solución esperada para ejercicio (2023-1) ejercicio 3 para errores sintaxis: Detectar problemas en la redaccion de la solucion, las cuales generan errores de ejecucion del ejercicio.
+
+Errores esperados
+1. Error Sintaxis, Where en vez de having
+2. Error Sintaxis, Doble igual
+3. Error Sintaxis, Punto y coma mal puesto
+
+------------------------------------------------------------
+RESPUESTA DEL ESTUDIANTE (ORIGINAL)
+------------------------------------------------------------
+- Respuesta estudiante -
+
+SELECT cliente.nombre
+FROM cliente
+INNER JOIN ticket ON ticket.refcliente == cliente.id
+GROUP BY cliente.id, cliente.nombre;
+WHERE COUNT(ticket.id) == (
+    SELECT MAX(nro_tickets)
+    FROM (
+        SELECT COUNT(ticket.id) AS nro_tickets
+        FROM cliente
+        INNER JOIN ticket ON ticket.refcliente = cliente.id
+        GROUP BY cliente.id
+    ) AS t
+)
+
+- Tabla resultante de estudiante -
+
+------------------------------------------------------------
+ANÁLISIS DEL MODELO
+------------------------------------------------------------
+Errores identificados:
+   1. Error de Sintaxis: Uso incorrecto del orden de las cláusulas SQL.
+      - ¿Por qué es un error? La cláusula WHERE debe estar después de GROUP BY. El orden correcto es: `SELECT`, `FROM`, `JOIN`, `WHERE`, `GROUP BY`, `HAVING`. En este caso, la cláusula `WHERE` está después de `GROUP BY`, lo cual es incorrecto. Debe reemplazarse por `HAVING` para filtrar después de la agrupación.
+
+   2. Error de Sintaxis: Uso incorrecto de '==' para comparar.
+      - ¿Por qué es un error? En SQL, el operador de comparación para igualdad es '=', no '=='. El uso de '==' es común en lenguajes de programación como Python, pero en SQL se debe usar '='.
+
+   3. Error Conceptual: Uso innecesario de JOIN explícito en la subconsulta interna.
+      - ¿Por qué es un error? Aunque el uso de JOIN explícito o implícito no cambia el resultado en este caso, la respuesta correcta utiliza JOIN implícito. Sin embargo, esto no afecta la funcionalidad.
+
+La corrección de los errores de sintaxis identificados (orden de cláusulas y operador de comparación) hará que la consulta del estudiante sea funcional.
+
+================================================================================
+SECCIÓN PARA REVISIÓN MANUAL (FORMATO JSON)
+================================================================================
+
+INSTRUCCIONES:
+- Complete el JSON siguiente con su evaluación
+- Mantenga el formato JSON válido
+- Use comillas dobles para strings
+- No use caracteres especiales que rompan el JSON
+
+- IMPORTANTE: un modelo puede encontrar diferentes errores pero juntarlos en un solo item, en este caso se toma correcto y se cuenta los errores mencionados como errores independientes aunque esten en solo uno.
+
+- IMPORTANTE: Aunque esten los errores juntos, pero correctamente catalogados, igual cuentan como bien catalogados.
+
+- IMPORTANTE: Un modelo puede extraer mas de un error desde un error principal, en este caso se considera como solo un error, el cual es el mismo ya mencionado.
+
+- El formato es 'un comentario de porque se llego a la conclucion de la evaluacion' seguido del 'json resultante'.
+
+Tienes que revisar si el modelo identificó correctamente los errores esperados.
+
+Para cada error:
+- Si lo identificó y categorizó bien → cuenta como "correctamente identificado"
+- Si lo identificó pero mal catalogado → "mal catalogado"
+- Si no lo detectó → "no encontrado"
+- Si mencionó un error que no existe y no esta relacionado a un error mencionado → "inventado"
+
+```json
+{
+  "id_evaluacion": "Contexto2023-1_Ejercicio3_2023-1_Error Sintaxis_meta-llama_llama-4-maverick_free",
+  "contexto": "Contexto2023-1",
+  "ejercicio": "Ejercicio3_2023-1",
+  "tipo_evaluacion": "Error Sintaxis",
+  "modelo_evaluado": "meta-llama/llama-4-maverick:free",
+  "evaluacion": {
+    "errores_correctamente_identificados": null,
+    "errores_no_encontrados": null,
+    "errores_mal_catalogados": null,
+    "errores_inventados": null,
+    "tiempo_respuesta": 3.94
+  },
+  "errores_esperados_total": 3,
+  "errores_detectados_por_modelo": []
+}
+```
+
+--------------------------------------------------------------------------------
+GUÍA DE EVALUACIÓN
+--------------------------------------------------------------------------------
+NOTA: Complete todos los campos null con valores numéricos apropiados

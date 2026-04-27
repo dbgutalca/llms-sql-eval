@@ -1,0 +1,13 @@
+--- Modelo: qwen/qwen3-8b:free
+--- Tiempo: 43.39s
+--- Largo: 755 caracteres
+--- Tokens entrada: 4182
+--- Tokens salida: 2951
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Uso incorrecto de COUNT sin DISTINCT. 
+   - ¿Por qué es un error? La función COUNT(viaje.destino) cuenta todas las filas, incluyendo duplicados de destinos. El enunciado solicita el número de destinos distintos, por lo que se debe usar COUNT(DISTINCT viaje.destino) para evitar contar múltiples viajes a la misma ubicación.
+
+2. Conceptual: Uso innecesario y potencialmente incorrecto de GROUP BY solo por cliente.nombre.
+   - ¿Por qué es un error? La tabla cliente tiene como clave primaria id, no nombre. Si un cliente tuviera el mismo nombre que otro, GROUP BY cliente.nombre provocaría agrupamientos incorrectos. Debe usar GROUP BY cliente.id, cliente.nombre para garantizar que cada cliente sea único en el resultado.

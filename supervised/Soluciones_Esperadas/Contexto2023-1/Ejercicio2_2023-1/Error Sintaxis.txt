@@ -1,0 +1,6 @@
+Solución esperada para ejercicio (2023-1) ejercicio 2 para errores sintaxis: Detectar problemas en la redaccion de la solucion, las cuales generan errores de ejecucion del ejercicio.
+
+Errores esperados
+1. Error Sintaxis, aucencia de parentesis
+2. Error Sintaxis, Doble igual
+3. Error Sintaxis, Falta ON para JOIN

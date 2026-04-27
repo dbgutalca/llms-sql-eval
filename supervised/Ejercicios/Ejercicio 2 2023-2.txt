@@ -1,0 +1,29 @@
+- Enunciado -
+
+Retornar una tabla con los nombres de los académicos que han revisado la mayor cantidad de tesis. No se permite el uso de order-by, offset o limit.
+
+- Respuesta correcta -
+
+select t3.rev_nombre as nombre_academico
+from 
+( select academico.id as rev_id, academico.nombre as rev_nombre, count(revisor.ref_tesis) as contador
+  from academico, revisor
+  where revisor.ref_academico = academico.id
+  group by academico.id, academico.nombre
+) as t3,
+( select max(contador) as maximo
+  from 
+  ( select academico.id as revisor, count(revisor.ref_tesis) as contador
+    from academico, revisor
+    where revisor.ref_academico = academico.id
+    group by academico.id
+  ) as t1
+) as t2
+where t3.contador = t2.maximo
+
+- tabla esperada -
+
+|nombre_academico |
+|-----------------|
+|Academico cuatro |
+|Academico cinco  |

@@ -1,0 +1,3 @@
+- Problema -
+
+Retornar una tabla con los nombres de los académicos que han revisado la mayor cantidad de tesis. No se permite el uso de order-by, offset o limit.

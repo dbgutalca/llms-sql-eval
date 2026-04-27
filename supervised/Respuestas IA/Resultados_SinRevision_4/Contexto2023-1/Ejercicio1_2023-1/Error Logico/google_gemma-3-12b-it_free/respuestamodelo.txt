@@ -1,0 +1,12 @@
+--- Modelo: google/gemma-3-12b-it:free
+--- Tiempo: 3.75s
+--- Largo: 397 caracteres
+--- Tokens entrada: 4067
+--- Tokens salida: 0
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Selección incorrecta de la columna.
+   - ¿Por qué es un error? El enunciado solicita las ciudades de *destino*, pero la consulta selecciona las ciudades de *origen*.
+2. Error conceptual: Uso innecesario de la tabla cliente en el FROM.
+   - ¿Por qué es un error? La tabla cliente no es necesaria para obtener los campos solicitados (origen está en la tabla viaje).

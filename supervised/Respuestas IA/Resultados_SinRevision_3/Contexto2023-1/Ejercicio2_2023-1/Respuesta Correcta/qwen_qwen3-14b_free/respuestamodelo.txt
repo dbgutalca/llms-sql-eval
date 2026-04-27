@@ -1,0 +1,9 @@
+--- Modelo: qwen/qwen3-14b:free
+--- Tiempo: 8.23s
+--- Largo: 47 caracteres
+--- Tokens entrada: 4196
+--- Tokens salida: 389
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+No hay error encontrado.

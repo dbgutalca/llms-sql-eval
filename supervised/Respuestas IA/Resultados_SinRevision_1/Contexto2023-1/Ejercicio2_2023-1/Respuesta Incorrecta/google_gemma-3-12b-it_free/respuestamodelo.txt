@@ -1,0 +1,10 @@
+--- Modelo: google/gemma-3-12b-it:free
+--- Tiempo: 3.64s
+--- Largo: 299 caracteres
+--- Tokens entrada: 4197
+--- Tokens salida: 0
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Lógico: Contando destinos duplicados.
+   - ¿Por qué es un error? La consulta no utiliza `COUNT(DISTINCT viaje.destino)`, lo que significa que si un cliente viajó al mismo destino varias veces, se contará múltiples veces. El enunciado pide el número de *destinos distintos*.

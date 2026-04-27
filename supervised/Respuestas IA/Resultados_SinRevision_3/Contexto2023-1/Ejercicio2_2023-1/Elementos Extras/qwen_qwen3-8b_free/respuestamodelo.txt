@@ -1,0 +1,13 @@
+--- Modelo: qwen/qwen3-8b:free
+--- Tiempo: 22.62s
+--- Largo: 560 caracteres
+--- Tokens entrada: 4200
+--- Tokens salida: 1157
+--- Éxito: True
+--- Respuesta del Modelo:
+Errores identificados:
+1. Conceptual: Uso innecesario de WHERE cliente.edad < 100.
+   - ¿Por qué es un error? El enunciado no requiere filtrar por edad, por lo que esta condición no es necesaria y altera el resultado al incluir solo clientes menores de 100 años (una restricción irrefutable ya que todos los clientes en los datos cumplen con ello).
+
+2. Conceptual: Uso innecesario de ORDER BY.
+   - ¿Por qué es un error? El enunciado no solicita ordenar los resultados, por lo que esta cláusula es redundante y no aporta valor al cumplir el objetivo planteado.

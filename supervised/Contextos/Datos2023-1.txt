@@ -1,0 +1,68 @@
+- Tablas -
+
+create table cliente(id integer primary key, nombre text, edad integer);
+
+create table bus(patente text primary key, marca text, capacidad integer);
+
+create table viaje(id integer primary key, origen text, destino text, fecha date, hora integer, refbus text references bus(patente));
+
+create table ticket(id integer primary key, refviaje integer references viaje(id), refcliente integer references cliente(id), asiento integer);
+
+
+- Datos - 
+
+insert into cliente values (1,'Juan',20);
+insert into cliente values (2,'Ivan',20);
+insert into cliente values (3,'Alex',30);
+insert into cliente values (4,'Oscar',30);
+insert into cliente values (5,'Gerardo',40);
+insert into cliente values (6,'William',40);
+insert into cliente values (7,'Welton',50);
+insert into cliente values (8,'Aldo',50);
+
+insert into bus values ('B1','marca1',50);
+insert into bus values ('B2','marca2',50);
+insert into bus values ('B3','marca3',50);
+
+insert into viaje values (1,'Curicó','Talca','2023-05-01',8000,'B1');
+insert into viaje values (2,'Talca','Curicó','2023-05-01',1200,'B1');
+insert into viaje values (3,'Curicó','Santiago','2023-05-01',8000,'B2');
+insert into viaje values (4,'Santiago','Curicó','2023-05-01',1200,'B2');
+insert into viaje values (5,'Curicó','Talca','2023-05-02',8000,'B1');
+insert into viaje values (6,'Talca','Curicó','2023-05-02',1200,'B1');
+insert into viaje values (7,'Curicó','Santiago','2023-05-02',8000,'B2');
+insert into viaje values (8,'Santiago','Curicó','2023-05-02',1200,'B2');
+insert into viaje values (9,'Curicó','Linares','2023-05-03',8000,'B3');
+insert into viaje values (10,'Linares','Curicó','2023-05-03',1200,'B3');
+
+
+insert into ticket values (1, 1, 1, 10);
+insert into ticket values (2, 1, 2, 20);
+insert into ticket values (3, 2, 1, 10);
+insert into ticket values (4, 2, 2, 20);
+insert into ticket values (5, 3, 3, 10);
+insert into ticket values (6, 3, 4, 20);
+insert into ticket values (7, 4, 3, 10);
+insert into ticket values (8, 4, 4, 20);
+insert into ticket values (9, 5, 1, 10);
+insert into ticket values (10, 5, 2, 20);
+insert into ticket values (11, 6, 1, 10);
+insert into ticket values (12, 6, 2, 20);
+insert into ticket values (13, 7, 3, 10);
+insert into ticket values (14, 7, 4, 20);
+insert into ticket values (15, 8, 3, 10);
+insert into ticket values (16, 8, 4, 20);
+insert into ticket values (17, 9, 1, 10);
+insert into ticket values (18, 9, 3, 20);
+insert into ticket values (19, 9, 5, 30);
+insert into ticket values (20, 9, 6, 40);
+insert into ticket values (21, 10, 1, 10);
+insert into ticket values (22, 10, 3, 20);
+insert into ticket values (23, 10, 5, 30);
+insert into ticket values (24, 10, 6, 40);
+insert into ticket values (25, 1, 7, 11);
+insert into ticket values (26, 1, 8, 12);
+insert into ticket values (27, 7, 7, 11);
+insert into ticket values (28, 7, 8, 12);
+insert into ticket values (29, 9, 7, 11);
+insert into ticket values (30, 9, 8, 12);
